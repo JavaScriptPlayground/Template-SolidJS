@@ -3,6 +3,7 @@
     "deno.unstable": true,
     "deno.enablePaths": [
         "./src",
-        "./test"
+        "./test",
+        "./lib"
     ]
 }
