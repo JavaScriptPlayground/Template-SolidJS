@@ -1,2 +1,2 @@
 # Template
-Template for TypeScript.
+Template for JavaScript.
