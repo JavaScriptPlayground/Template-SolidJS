@@ -1,0 +1,32 @@
+name: Deno
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Deno Test
+    runs-on: ubuntu-latest
+    env:
+      deno-version: v1.x
+
+    steps:
+      - name: Setup Repository (${{github.event.repository.name}})
+        uses: actions/checkout@v3
+
+      - name: Setup Deno (${{env.deno-version}})
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: ${{env.deno-version}}
+
+      - name: Run linter
+        run: deno lint
+
+      - name: Run tests
+        run: deno test -A --unstable --check --reload --doc --allow-none
