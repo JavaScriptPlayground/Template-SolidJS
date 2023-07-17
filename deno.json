@@ -1,0 +1,118 @@
+{
+  "license": "./LICENSE",
+  "tasks": {
+    "clear-dist": "rm -r ./dist/* || exit 0",
+    "clear-reports": "rm -r ./reports/* || exit 0",
+    "install": {
+      "description": "Install all dependencies specified in the \"deno.lock\" file.",
+      "command": "deno install"
+    },
+    "build": {
+      "description": "Build the app for production.",
+      "command": "deno run -A ./build/esbuild.ts",
+      "dependencies": [ "clear-dist" ]
+    },
+    "build:watch": {
+      "description": "Build the app for production with watcher.",
+      "command": "deno run -A ./build/esbuild.ts --watch",
+      "dependencies": [ "clear-dist" ]
+    },
+    "build:dev": {
+      "description": "Build the app for development.",
+      "command": "deno run -A ./build/esbuild.ts --develop",
+      "dependencies": [ "clear-dist" ]
+    },
+    "build:dev:watch": {
+      "description": "Build the app for development with watcher.",
+      "command": "deno run -A ./build/esbuild.ts --develop --watch",
+      "dependencies": [ "clear-dist" ]
+    },
+    "cache-reload": {
+      "description": "Reload the dependency cache.",
+      "command": "deno cache --reload ."
+    },
+    "serve": {
+      "description": "Run the server on port 8000 for production.",
+      "command": "deno run -A ./src/server/index.ts --port=8000",
+      "dependencies": [ "build" ]
+    },
+    "serve:dev": {
+      "description": "Run the server on port 8000 for development.",
+      "command": "deno run -A ./src/server/index.ts --develop --port=8000",
+      "dependencies": [ "build:dev" ]
+    },
+    "lint": {
+      "description": "Run linter.",
+      "command": "deno lint"
+    },
+    "test": {
+      "description": "Run unit tests. Junit reports will be saved to \"./reports/report.xml\".",
+      "command": "deno test -A --check --reload --doc --permit-no-files --junit-path=\"./reports/report.xml\"",
+      "dependencies": [ "clear-reports" ]
+    }
+  },
+  "compilerOptions": {
+    "module": "esnext",
+    "lib": [
+      "esnext",
+      "dom",
+      "webworker"
+    ],
+    "jsx": "preserve",
+    "jsxImportSource": "@solid-js"
+  },
+  "exclude": [
+    "./dist/"
+  ],
+  "test": {
+    "include": [
+      "**/*.test.ts"
+    ]
+  },
+  "lint": {
+    "rules": {
+      "tags": [
+        "recommended"
+      ],
+      "include": [
+        "camelcase",
+        "default-param-last",
+        "eqeqeq",
+        "explicit-function-return-type",
+        "explicit-module-boundary-types",
+        "guard-for-in",
+        "no-const-assign",
+        "no-eval",
+        "no-external-import",
+        "no-non-null-asserted-optional-chain",
+        "no-non-null-assertion",
+        "no-self-compare",
+        "no-sparse-arrays",
+        "no-sync-fn-in-async-fn",
+        "no-throw-literal",
+        "no-undef",
+        "prefer-ascii",
+        "single-var-declarator",
+        "verbatim-module-syntax"
+      ],
+      "exclude": [
+        "no-inferrable-types"
+      ]
+    }
+  },
+  "fmt": {
+    "options": {
+      "singleQuote": true,
+      "lineWidth": 120
+    }
+  },
+  "imports": {
+    "@deno/esbuild-plugin": "jsr:@deno/esbuild-plugin@^1.2.0",
+    "@esbuild": "npm:esbuild@^0.25.11",
+    "@solid-js": "npm:solid-js@1.9.10",
+    "@solid-js/router": "npm:@solidjs/router@^0.15.3",
+    "@std/cli": "jsr:@std/cli@^1.0.6",
+    "@std/http": "jsr:@std/http@^1.0.6",
+    "@std/fmt": "jsr:@std/fmt@^1.0.2"
+  }
+}

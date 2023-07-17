@@ -1,0 +1,75 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+    
+  workflow_dispatch:
+    inputs:
+      page-root-directory:
+        description: Page root directory
+        default: './dist/'
+        type: string
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:   
+  deploy:
+    name: Deploy Pages
+    # Deploy only to Github Pages if repository name ends with .github.io
+    if: ${{ github.event.repository.name == format('{0}.github.io', github.repository_owner) }}
+    env:
+      deno-version: v2.x
+      page-root-directory: './dist/'
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Repository (${{github.event.repository.name}})
+        uses: actions/checkout@v4
+
+      - name: Setup Deno (${{env.deno-version}})
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: ${{env.deno-version}}
+          
+      - name: Build page
+        run: deno task build
+
+      - name: Upload build artifact (Automatic)
+        if: (!github.event.inputs.page-root-directory)
+        uses: actions/upload-artifact@v4
+        with:
+          path: ${{env.page-root-directory}}
+          
+      - name: Upload build artifact (Workflow Dispatch)
+        if: (github.event.inputs.page-root-directory)
+        uses: actions/upload-artifact@v4
+        with:
+          path: ${{github.event.inputs.page-root-directory}}
+        
+      - name: Setup pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload page artifact (Automatic)
+        if: (!github.event.inputs.page-root-directory)
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ${{env.page-root-directory}}
+
+      - name: Upload page artifact (Workflow Dispatch)
+        if: (github.event.inputs.page-root-directory)
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ${{github.event.inputs.page-root-directory}}
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v3
+          

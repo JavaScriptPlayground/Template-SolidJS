@@ -1,0 +1,34 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  color-scheme: dark;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+body {
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.page {
+  display: grid;
+  gap: 100px;
+
+  .title,
+  .link {
+    text-align: center;
+  }
+
+  .link {
+    font-family: Consolas;
+  }
+
+  .logo {
+    width: 200px;
+  }
+}
