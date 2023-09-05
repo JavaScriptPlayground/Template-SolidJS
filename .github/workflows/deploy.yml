@@ -14,11 +14,7 @@ on:
 permissions:
   contents: read
   pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  checks: write
 
 jobs:
   test:
@@ -28,10 +24,6 @@ jobs:
       deno-version: v1.x
 
     steps:
-      - name: Get current date
-        id: date
-        run: echo "DATE=$(date +'%Y.%m.%d@%H-%M-%S')" >> $GITHUB_ENV
-      
       - name: Setup Repository (${{github.event.repository.name}})
         uses: actions/checkout@v3
 
@@ -47,14 +39,16 @@ jobs:
         if: success() || failure()
         run: |
           mkdir reports
-          deno test -A --unstable --check --reload --doc --allow-none --junit-path="./reports/${{env.DATE}}-report.xml"
+          deno test -A --unstable --check --reload --doc --allow-none --junit-path="./report.xml"
       
-      - name: Report tests (${{env.DATE}}-report.xml)
-        uses: dorny/test-reporter@v1
+      - name: Run tests
+        if: success() || failure()
+        run: deno test -A --unstable --check --reload --doc --allow-none --junit-path="./report.xml"
+                         
+      - name: JUnit Report Action      
+        uses: mikepenz/action-junit-report@v3.8.0
         with:
-          name: Deno Test Report
-          path: ./reports/${{env.DATE}}-report.xml
-          reporter: jest-junit
+          report_paths: 'report.xml'
   
   deploy:
     name: Deploy Page
