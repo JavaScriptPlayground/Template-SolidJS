@@ -28,6 +28,10 @@ jobs:
       deno-version: v1.x
 
     steps:
+      - name: Get current date
+        id: date
+        run: echo "DATE=$(date +'%Y.%m.%d@%H-%M-%S')" >> $GITHUB_ENV
+      
       - name: Setup Repository (${{github.event.repository.name}})
         uses: actions/checkout@v3
 
@@ -38,9 +42,19 @@ jobs:
 
       - name: Run linter
         run: deno lint
-
+      
       - name: Run tests
-        run: deno test -A --unstable --check --reload --doc --allow-none
+        if: success() || failure()
+        run: |
+          mkdir reports
+          deno test -A --unstable --check --reload --doc --allow-none --junit-path="./reports/${{env.DATE}}-report.xml"
+      
+      - name: Report tests (${{env.DATE}}-report.xml)
+        uses: dorny/test-reporter@v1
+        with:
+          name: Deno Test Report
+          path: ./reports/${{env.DATE}}-report.xml
+          reporter: jest-junit
   
   deploy:
     name: Deploy Page
@@ -50,24 +64,24 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
+    - name: Setup Pages
+      uses: actions/configure-pages@v3
 
-      - name: Upload artifact (Automatic)
-        if: (!github.event.inputs.page-root-directory)
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: ${{env.page-root-directory}}
+    - name: Upload artifact (Automatic)
+      if: (!github.event.inputs.page-root-directory)
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: ${{env.page-root-directory}}
 
-      - name: Upload artifact (Workflow Dispatch)
-        if: (github.event.inputs.page-root-directory)
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: ${{github.event.inputs.page-root-directory}}
+    - name: Upload artifact (Workflow Dispatch)
+      if: (github.event.inputs.page-root-directory)
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: ${{github.event.inputs.page-root-directory}}
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2
