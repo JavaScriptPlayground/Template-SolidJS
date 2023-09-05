@@ -45,7 +45,7 @@ jobs:
         if: success() || failure()
         run: deno test -A --unstable --check --reload --doc --allow-none --junit-path="./report.xml"
                          
-      - name: JUnit Report Action      
+      - name: Report tests      
         uses: mikepenz/action-junit-report@v3.8.0
         with:
           report_paths: 'report.xml'
