@@ -6,5 +6,8 @@
         "./test",
         "./lib"
     ],
-    "liveServer.settings.root": "./src/client"
+    "liveServer.settings.root": "./src/client",
+    "less.compile": {
+        "main": "${workspaceFolder}/src/client/style/index.less"
+    }
 }
