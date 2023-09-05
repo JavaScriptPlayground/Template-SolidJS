@@ -1,0 +1,73 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+    
+  workflow_dispatch:
+    inputs:
+      page-root-directory:
+        description: Page root directory
+        default: './src/client/'
+        type: string
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  test:
+    name: Deno Test
+    runs-on: ubuntu-latest
+    env:
+      deno-version: v1.x
+
+    steps:
+      - name: Setup Repository (${{github.event.repository.name}})
+        uses: actions/checkout@v3
+
+      - name: Setup Deno (${{env.deno-version}})
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: ${{env.deno-version}}
+
+      - name: Run linter
+        run: deno lint
+
+      - name: Run tests
+        run: deno test -A --unstable --check --reload --doc --allow-none
+  
+  deploy:
+    name: Deploy Page
+    needs: [test]
+    env:
+      page-root-directory: './src/client'
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact (Automatic)
+        if: (!github.event.inputs.page-root-directory)
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ${{env.page-root-directory}}
+
+      - name: Upload artifact (Workflow Dispatch)
+        if: (github.event.inputs.page-root-directory)
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ${{github.event.inputs.page-root-directory}}
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
