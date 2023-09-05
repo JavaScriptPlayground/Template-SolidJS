@@ -46,7 +46,7 @@ jobs:
     name: Deploy Page
     needs: [test]
     env:
-      page-root-directory: './src/client'
+      page-root-directory: './src/client/'
 
     runs-on: ubuntu-latest
     steps:
