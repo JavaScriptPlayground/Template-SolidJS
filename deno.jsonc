@@ -1,6 +1,7 @@
 {
     "tasks": {
-        "bundle-watch": "",
+        "bundle": "deno run -A ./lib/bundle/bundle.ts --config='./bundle.json'",
+        "bundle-watch": "deno run -A --watch ./lib/bundle/bundle.ts --config='./bundle.json'",
         "lint-watch": "deno lint --watch"
     },
     "exclude": [
