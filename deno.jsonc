@@ -1,10 +1,21 @@
 {
+    "tasks": {
+        "bundle-watch": "",
+        "lint-watch": "deno lint --watch"
+    },
     "exclude": [
         "**/*.test.ts"
     ],
     "test": {
         "include": [
             "**/*.test.ts"
+        ]
+    },
+    "compilerOptions": {
+        "lib": [
+          "esnext",
+          "dom",
+          "dom.iterable"
         ]
     }
 }
