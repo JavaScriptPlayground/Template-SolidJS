@@ -1,8 +1,9 @@
 {
     "tasks": {
-        "bundle": "deno run -A --unstable https://deno.land/x/deno_bundler/cli.ts bundle --config=./tsconfig.json ./src/client/index.ts=./dist/client/bundle.js",
-        "bundle-watch": "deno run -A --unstable https://deno.land/x/deno_bundler/cli.ts bundle --config=./tsconfig.json ./src/client/index.ts=./dist/client/bundle.js --watch",
-        "lint-watch": "deno lint --watch"
+        "esbuild-help": "deno run -A https://deno.land/x/esbuild@v0.19.2/mod.js --help",
+        "build": "deno run -A https://deno.land/x/esbuild@v0.19.2/mod.js --bundle ./src/client/index.ts --outdir=dist/client --minify",
+        "build-watch": "deno run -A https://deno.land/x/esbuild@v0.19.2/mod.js --bundle ./src/client/index.ts --outdir=dist/client --minify --watch",
+        "lint": "deno lint"
     },
     "exclude": [
         "**/*.test.ts"
