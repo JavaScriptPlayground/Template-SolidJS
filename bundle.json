@@ -1,4 +1,0 @@
-{
-    "./src/client/index.ts": "./dist/client/bundle.js",
-    "./src/client/index2.ts": "./dist/client/bundle2.js"
-}
