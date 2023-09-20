@@ -1,9 +1,10 @@
 name: Deploy GitHub Pages
 
-on:
-  push:
-    branches: ["main"]
-    
+on: 
+  workflow_run:
+    workflows: ['Run Unit Tests']
+    types: ['completed']
+
   workflow_dispatch:
     inputs:
       page-root-directory:
@@ -17,42 +18,9 @@ permissions:
   checks: write
 
 jobs:
-  test:
-    name: Deno Test
-    runs-on: ubuntu-latest
-    env:
-      deno-version: v1.x
-
-    steps:
-      - name: Setup Repository (${{github.event.repository.name}})
-        uses: actions/checkout@v3
-
-      - name: Setup Deno (${{env.deno-version}})
-        uses: denoland/setup-deno@v1
-        with:
-          deno-version: ${{env.deno-version}}
-
-      - name: Run linter
-        run: deno lint
-      
-      - name: Run tests
-        if: success() || failure()
-        run: |
-          mkdir reports
-          deno test -A --unstable --check --reload --doc --allow-none --junit-path="./report.xml"
-      
-      - name: Run tests
-        if: success() || failure()
-        run: deno test -A --unstable --check --reload --doc --allow-none --junit-path="./report.xml"
-                         
-      - name: Report tests      
-        uses: mikepenz/action-junit-report@v3.8.0
-        with:
-          report_paths: 'report.xml'
-  
   deploy:
     name: Deploy Page
-    needs: [test]
+
     env:
       page-root-directory: './src/client/'
 
@@ -63,8 +31,6 @@ jobs:
 
     - name: Setup Pages
       uses: actions/configure-pages@v3
-      with:
-        enablement: true
 
     - name: Upload artifact (Automatic)
       if: (!github.event.inputs.page-root-directory)
