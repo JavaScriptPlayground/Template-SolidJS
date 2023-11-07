@@ -1,8 +1,10 @@
 {
     "tasks": {
-        "esbuild-help": "deno run -A https://deno.land/x/esbuild@v0.19.2/mod.js --help",
-        "build": "deno run -A https://deno.land/x/esbuild@v0.19.2/mod.js --bundle --outdir=dist --outbase=src --minify ./src/client/**/index.ts",
-        "build-watch": "",
+        "clear-dist": "rm -rf dist/*",
+        "copy-files-to-dist": "deno run -A https://raw.githubusercontent.com/DenoPlayground/CopyFiles/main/cli.ts ./src/client/ ./dist/ --exts=.html",
+        "build": "deno task clear-dist; deno task copy-files-to-dist & deno run -A https://deno.land/x/esbuild@v0.19.4/mod.js --bundle --minify --target=es2022 --outdir=dist/ --entry-names=\"[dir]/bundle.min\" ./**/index.ts",
+        "build-watch": "deno task clear-dist; deno task copy-files-to-dist & deno run -A https://deno.land/x/esbuild@v0.19.4/mod.js --bundle --minify --watch --target=es2022 --outdir=dist ./home/bundle.min=./src/client/home/index.ts",
+        "build-help": "deno run -A https://deno.land/x/esbuild@v0.19.4/mod.js --help"
         "lint": "deno lint"
     },
     "exclude": [
@@ -14,10 +16,12 @@
         ]
     },
     "compilerOptions": {
+        "allowImportingTsExtensions": true,
+        "target": "es2022",
+        "module": "es2022",
         "lib": [
-          "esnext",
-          "dom",
-          "dom.iterable"
+            "dom",
+            "dom.iterable"
         ]
     }
 }
