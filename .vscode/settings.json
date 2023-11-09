@@ -2,7 +2,7 @@
     "deno.enable": true,
     "deno.unstable": true,
     "deno.enablePaths": [
-        "./src/server",
+        "./src",
         "./test",
         "./lib"
     ],
