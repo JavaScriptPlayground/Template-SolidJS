@@ -6,7 +6,7 @@
         "lib": [
             "ES6",
             "DOM",
-            "DOM.Iterable",
+            "DOM.Iterable"
         ]
     }
 }
