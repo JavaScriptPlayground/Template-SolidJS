@@ -1,2 +1,2 @@
 # Template
-Template for JavaScript.
+Template for JavaScript-Frontend development.
