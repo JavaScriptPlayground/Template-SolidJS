@@ -23,5 +23,9 @@
             "dom",
             "dom.iterable"
         ]
+    },
+    "fmt": {
+        "singleQuote": true,
+        "lineWidth": 120
     }
 }
