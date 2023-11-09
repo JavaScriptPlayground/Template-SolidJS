@@ -27,5 +27,9 @@
     "fmt": {
         "singleQuote": true,
         "lineWidth": 120
+    },
+    "imports": {
+        "module:lit": "https://esm.sh/lit@3.0.2",
+        "module:lit/decorators.js": "https://esm.sh/lit@3.0.2/decorators.js"
     }
 }
