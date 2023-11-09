@@ -1,5 +1,12 @@
 {
-  "compilerOptions": {
-    "experimentalDecorators": true
-  }
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "allowImportingTsExtensions": true,
+        "target": "es2022",
+        "module": "es2022",
+        "lib": [
+            "dom",
+            "dom.iterable"
+        ]
+    }
 }
