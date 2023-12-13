@@ -3,6 +3,7 @@
         "clear-dist": "rm -rf dist/*",
         "copy-html": "deno run -A https://deno.land/x/esbuild@v0.19.4/mod.js --loader:.html=copy --outdir=dist/ ./**/index.html",
         "build": "deno task clear-dist ; deno task copy-html & deno run -A https://deno.land/x/esbuild@v0.19.4/mod.js --bundle --minify --target=es6 --format=esm --loader:.html=copy --outdir=dist/ --entry-names=\"[dir]/bundle.min\" ./**/index.ts",
+        "build:dev": "deno task clear-dist ; deno task copy-html & deno run -A https://deno.land/x/esbuild@v0.19.4/mod.js --bundle --target=es6 --format=esm --loader:.html=copy --outdir=dist/ --entry-names=\"[dir]/bundle.min\" ./**/index.ts",
         "build:watch": "deno task clear-dist ; deno task copy-html & deno run -A https://deno.land/x/esbuild@v0.19.4/mod.js --bundle --minify --sourcemap --target=es6 --format=esm --loader:.html=copy --outdir=dist/ --entry-names=\"[dir]/bundle.min\" ./**/index.ts --watch",
         "build:help": "deno run -A https://deno.land/x/esbuild@v0.19.4/mod.js --help",
         "lint": "deno lint",
