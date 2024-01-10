@@ -1,8 +1,5 @@
 {
   "version": "3",
-  "redirects": {
-    "https://deno.land/x/esbuild_plugin_sass_deno/mod.ts": "https://deno.land/x/esbuild_plugin_sass_deno@v0.1.0/mod.ts"
-  },
   "remote": {
     "https://deno.land/std@0.131.0/_util/assert.ts": "e94f2eb37cebd7f199952e242c77654e43333c1ac4c5c700e929ea3aa5489f74",
     "https://deno.land/std@0.131.0/_util/os.ts": "49b92edea1e82ba295ec946de8ffd956ed123e2948d9bd1d3e901b04e4307617",
@@ -45,10 +42,7 @@
     "https://deno.land/std@0.162.0/testing/asserts.ts": "1e340c589853e82e0807629ba31a43c84ebdcdeca910c4a9705715dfdb0f5ce8",
     "https://deno.land/std@0.211.0/assert/assert.ts": "bec068b2fccdd434c138a555b19a2c2393b71dfaada02b7d568a01541e67cdc5",
     "https://deno.land/std@0.211.0/assert/assertion_error.ts": "9f689a101ee586c4ce92f52fa7ddd362e86434ffdf1f848e45987dc7689976b8",
-    "https://deno.land/std@0.211.0/cli/mod.ts": "58f75df8ce43fb8266bdd26ec4465f73176b910316d72eb8e090b6a0549391da",
     "https://deno.land/std@0.211.0/cli/parse_args.ts": "91dfad92c32c4c7f50bc5f476030cc84d0b8ad69f66cde219ddfd49516cbbdcf",
-    "https://deno.land/std@0.211.0/cli/prompt_secret.ts": "de44568ce4c3905d5a62123935e396d37d78acbd9988700f4b1ae0c7389aca02",
-    "https://deno.land/std@0.211.0/cli/spinner.ts": "4ed94ef9f13db64ad8dc3a9f598d5ff78ced13d5f88645c53b14177ca8bf0ea0",
     "https://deno.land/std@0.211.0/fmt/colors.ts": "be082d6a6bbb2980ae7b2bf8c23c6bb2811ba90a06a9bcb861344a71784c5a99",
     "https://deno.land/x/denoflate@1.2.1/mod.ts": "f5628e44b80b3d80ed525afa2ba0f12408e3849db817d47a883b801f9ce69dd6",
     "https://deno.land/x/denoflate@1.2.1/pkg/denoflate.js": "b9f9ad9457d3f12f28b1fb35c555f57443427f74decb403113d67364e4f2caf4",
@@ -62,6 +56,6 @@
     "https://raw.githubusercontent.com/DenoPlayground/esbuild-plugin-sass/main/mod.ts": "0c224aa9f478cb1ed2cb9a9cd4ad550c056bb3606247782cb660d76af70f8761",
     "https://raw.githubusercontent.com/DenoPlayground/esbuild-plugin-sass/main/src/get_text_content.ts": "435b1358e7a24628150350466bed02d1c820f5fa01c461af01c0a9c4ad7e3b34",
     "https://raw.githubusercontent.com/DenoPlayground/esbuild-plugin-sass/main/src/index.ts": "d283a87abda4aae20f7af26394838ab2e919f6284fbed8e895eb4d28b4ebb0b1",
-    "https://raw.githubusercontent.com/DenoPlayground/esbuild-plugin-sass/main/src/sass_plugin_setup.ts": "bb1d24494294a6359dc819e05a1509234359c41f9ebe71a45a2f9a6a7476ea35"
+    "https://raw.githubusercontent.com/DenoPlayground/esbuild-plugin-sass/main/src/sass_plugin_setup.ts": "259d875c91cd06ef2697bf1394623369cea739e43ffe388b2be17e5bc18c2608"
   }
 }
