@@ -1,8 +1,7 @@
 {
     "tasks": {
         "build": "deno run -A ./build.config.ts",
-        "build:watch": "deno run -A ./build.config.ts --watch",
-        "build:dev": "deno run -A ./build.config.ts --dev",
+        "build:watch": "deno run -A --watch ./build.config.ts",
         "lint": "deno lint",
         "test": "deno test -A --unstable --check --reload --doc --allow-none --junit-path=\"./report.xml\""
     },

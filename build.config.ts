@@ -1,16 +1,35 @@
 /// <reference lib="deno.ns" />
-import * as esbuild from 'https://deno.land/x/esbuild@v0.19.11/mod.js';
-import { parseArgs } from 'https://deno.land/std@0.211.0/cli/parse_args.ts';
+import * as esbuild from "https://deno.land/x/esbuild@v0.19.11/mod.js";
+import sass from "https://deno.land/x/denosass@1.0.6/mod.ts"
+import { bold } from "https://deno.land/std@0.211.0/fmt/colors.ts";
 
-const args = parseArgs<{
-    watch : boolean,
-    dev : boolean
-}>(Deno.args);
+const sassPlugin: esbuild.Plugin = {
+    name: "esbuild-plugin-sass",
+    setup: (build) => {
+        build.onLoad(
+            { filter: /\.scss$/ },
+            async (args) => {
+                const file = await Deno.readTextFile(args.path)
+                
+                
+                const css = sass(
+                    file,
+                    { style: build.initialOptions.minify ? 'compressed' : 'expanded' }
+                ).to_string()
 
-'Watcher Process started.'
+                return {
+                    contents: css.toString() || '',
+                    loader: 'css'
+                }
+            }
+        )
+    }
+}
 
-const HTMLContext = await esbuild.context({
+console.log(bold('Coping HTML files...'))
+await esbuild.build({
     allowOverwrite: true,
+    logLevel: 'info',
     outdir: './dist',
     loader: {
         '.html': 'copy'
@@ -20,11 +39,28 @@ const HTMLContext = await esbuild.context({
     ]
 })
 
-const typeScripContext = await esbuild.context({
+console.log(bold('Transpiling & Bundling SCSS files...'))
+await esbuild.build({
+    allowOverwrite: true,
+    logLevel: 'info',
+    minify: true,
+    outdir: './dist',
+    entryNames: '[dir]/bundle.min',
+    entryPoints: [
+        './src/**/index.scss'
+    ],
+    plugins: [
+        sassPlugin
+    ]
+})
+
+console.log(bold('Transpiling & Bundling TypeScript files...'))
+await esbuild.build({
     tsconfig: './tsconfig.json',
     allowOverwrite: true,
+    logLevel: 'info',
     bundle: true,
-    minify: !(args.dev === true),
+    minify: true,
     target: 'ES6',
     format: 'esm',
     outdir: './dist',
@@ -34,7 +70,5 @@ const typeScripContext = await esbuild.context({
     ]
 })
 
-if (args.watch) {
-    HTMLContext.watch()
-    typeScripContext.watch()
-}
+console.log(bold('Build process finished.'))
+esbuild.stop()
