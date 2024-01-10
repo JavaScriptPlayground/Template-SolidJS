@@ -10,16 +10,25 @@ const sassPlugin: esbuild.Plugin = {
             { filter: /\.scss$/ },
             async (args) => {
                 const file = await Deno.readTextFile(args.path)
-                
-                
-                const css = sass(
-                    file,
-                    { style: build.initialOptions.minify ? 'compressed' : 'expanded' }
-                ).to_string()
 
-                return {
-                    contents: css.toString() || '',
-                    loader: 'css'
+                try {
+                    const css = sass(
+                        file,
+                        { style: build.initialOptions.minify ? 'compressed' : 'expanded' }
+                    ).to_string()?.toString()
+
+                    return {
+                        contents: css,
+                        loader: 'css'
+                    }
+                } catch (error) {
+                    console.log(error);
+                    
+                    return {
+
+                        contents: `/*\nError while transpiling:\n${error}\n*/`,
+                        loader: 'css'
+                    }
                 }
             }
         )
@@ -43,7 +52,8 @@ console.log(bold('Transpiling & Bundling SCSS files...'))
 await esbuild.build({
     allowOverwrite: true,
     logLevel: 'info',
-    minify: true,
+    minify: false,
+    legalComments: 'inline',
     outdir: './dist',
     entryNames: '[dir]/bundle.min',
     entryPoints: [
