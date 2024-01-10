@@ -1,6 +1,6 @@
 /// <reference lib="deno.ns" />
 import * as esbuild from 'https://deno.land/x/esbuild@v0.19.11/mod.js';
-import sassPlugin from 'https://raw.githubusercontent.com/DenoPlayground/esbuild-plugin-sass/main/mod.ts';
+import sassPlugin from 'https://deno.land/x/esbuild_plugin_sass@v0.1.0/mod.ts';
 import { bold } from 'https://deno.land/std@0.211.0/fmt/colors.ts';
 import { parseArgs } from 'https://deno.land/std@0.211.0/cli/parse_args.ts';
 
