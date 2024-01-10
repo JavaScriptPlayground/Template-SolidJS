@@ -10,23 +10,25 @@ const sassPlugin: esbuild.Plugin = {
             { filter: /\.scss$/ },
             async (args) => {
                 const file = await Deno.readTextFile(args.path)
+                
+                const css = sass(
+                    file,
+                    { style: build.initialOptions.minify ? 'compressed' : 'expanded' }
+                ).to_string()
 
-                try {
-                    const css = sass(
-                        file,
-                        { style: build.initialOptions.minify ? 'compressed' : 'expanded' }
-                    ).to_string()?.toString()
-
+                if (css instanceof Map) {
+                    return {
+                        contents: css.get('index'),
+                        loader: 'css'
+                    }
+                } else if (typeof css === 'string') {
                     return {
                         contents: css,
                         loader: 'css'
                     }
-                } catch (error) {
-                    console.log(error);
-                    
+                } else {
                     return {
-
-                        contents: `/*\nError while transpiling:\n${error}\n*/`,
+                        contents: '',
                         loader: 'css'
                     }
                 }
