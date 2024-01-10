@@ -54,7 +54,7 @@ console.log(bold('Transpiling & Bundling SCSS files...'))
 await esbuild.build({
     allowOverwrite: true,
     logLevel: 'info',
-    minify: false,
+    minify: true,
     legalComments: 'inline',
     outdir: './dist',
     entryNames: '[dir]/bundle.min',
