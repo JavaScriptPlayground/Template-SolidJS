@@ -3,7 +3,6 @@ import * as esbuild from 'https://deno.land/x/esbuild@v0.19.11/mod.js';
 import sassPlugin from 'https://raw.githubusercontent.com/DenoPlayground/esbuild-plugin-sass/main/mod.ts';
 import { bold } from 'https://deno.land/std@0.211.0/fmt/colors.ts';
 import { parseArgs } from 'https://deno.land/std@0.211.0/cli/parse_args.ts';
-import { green } from 'https://deno.land/std@0.162.0/fmt/colors.ts';
 
 const args = parseArgs<{
   watch: boolean | undefined;
