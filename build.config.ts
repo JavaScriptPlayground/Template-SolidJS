@@ -12,7 +12,7 @@ const args = parseArgs<{
 
 console.log('Build process started.');
 
-const timestamp = Date.now()
+const timestampNow = Date.now()
 
 Promise.all([
   esbuild.context({
@@ -44,7 +44,7 @@ Promise.all([
     ],
   }).then((context) => {return args.watch ? context.watch() : context.dispose()}),
 ]).then(() => {
-  console.log(green(`Build process finished in ${(Date.now() - timestamp).toString()}ms.`));
+  console.log(green(`Build process finished in ${(Date.now() - timestampNow).toString()}ms.`));
   
   if (!args.watch) {
     esbuild.stop();
