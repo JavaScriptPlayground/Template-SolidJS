@@ -1,7 +1,7 @@
 /// <reference lib="deno.ns" />
 import * as esbuild from 'https://deno.land/x/esbuild@v0.19.11/mod.js';
 import esbuildPluginSass from 'https://deno.land/x/esbuild_plugin_sass@v0.4.2/mod.ts';
-import { bold } from 'https://deno.land/std@0.211.0/fmt/colors.ts';
+import { green } from 'https://deno.land/std@0.211.0/fmt/colors.ts';
 import { parseArgs } from 'https://deno.land/std@0.211.0/cli/parse_args.ts';
 
 const args = parseArgs<{
@@ -10,7 +10,9 @@ const args = parseArgs<{
   logLevel: esbuild.LogLevel
 }>(Deno.args);
 
-console.log(bold('Build process started.'));
+console.log('Build process started.');
+
+const timestamp = Date.now()
 
 Promise.all([
   esbuild.context({
@@ -42,7 +44,7 @@ Promise.all([
     ],
   }).then((context) => {return args.watch ? context.watch() : context.dispose()}),
 ]).then(() => {
-  console.log(bold('Build process finished.'));
+  console.log(green(`Build process finished in ${(Date.now() - timestamp).toString()}ms.`));
   
   if (!args.watch) {
     esbuild.stop();
