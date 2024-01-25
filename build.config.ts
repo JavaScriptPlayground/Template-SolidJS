@@ -42,7 +42,7 @@ const filesConfig : esbuild.BuildOptions = {
   ],
 }
 
-const timestampNow = Date.now()
+const timestampNow = Date.now();
 
 if (args.watch) {
   esbuild.context(copyConfig).then((context) => context.watch());
