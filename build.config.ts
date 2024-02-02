@@ -57,7 +57,7 @@ if (args.watch) {
     esbuild.build(copyConfig),
     esbuild.build(filesConfig),
   ]).then(() => {
-    console.log(green(`Build process finished in ${(Date.now() - timestampNow).toString()}ms.`));
     esbuild.stop();
+    console.log(green(`Build process finished in ${(Date.now() - timestampNow).toString()}ms.`));
   })
 }
