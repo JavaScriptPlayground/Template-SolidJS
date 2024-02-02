@@ -10,8 +10,6 @@ const args = parseArgs<{
   logLevel: esbuild.LogLevel
 }>(Deno.args);
 
-console.log('Build process started.');
-
 const copyConfig : esbuild.BuildOptions = {
   allowOverwrite: true,
   logLevel: args.logLevel ?? 'info',
@@ -45,6 +43,8 @@ const filesConfig : esbuild.BuildOptions = {
     esbuildPluginSass()
   ],
 }
+
+console.log('Build process started.');
 
 const timestampNow = Date.now();
 
