@@ -22,12 +22,21 @@ jobs:
   deploy:
     name: Deploy Page
     env:
+      deno-version: 1.x
       page-root-directory: './dist'
 
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+      
+    - name: Setup Deno (${{env.deno-version}})
+      uses: denoland/setup-deno@v1
+      with:
+        deno-version: ${{env.deno-version}}
+
+    - name: Run linter
+      run: deno task build
 
     - name: Setup Pages
       uses: actions/configure-pages@v3
