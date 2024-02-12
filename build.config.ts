@@ -60,6 +60,6 @@ if (args.watch) {
     esbuild.build(filesConfig),
   ]).then(() => {
     esbuild.stop();
-    console.log(green(`Build process finished in ${(Date.now() - timestampNow).toString()}ms.`));
+    console.log(green(`esbuild ${esbuild.version} finished build in ${(Date.now() - timestampNow).toString()}ms.`));
   })
 }
