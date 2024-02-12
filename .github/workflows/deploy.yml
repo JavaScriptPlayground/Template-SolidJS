@@ -16,11 +16,11 @@ permissions:
   contents: read
   pages: write
   checks: write
+  id-token: write
 
 jobs:
   deploy:
     name: Deploy Page
-    if: ${{ github.repository_id == format('{0}.github.io', github.repository_owner) }}
     env:
       page-root-directory: './dist'
 
