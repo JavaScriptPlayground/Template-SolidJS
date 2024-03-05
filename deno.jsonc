@@ -6,7 +6,7 @@
     "build:dev:watch": "deno run -A ./build.config.ts --develope --watch",
     "serve": "",
     "lint": "deno lint",
-    "test": "deno test -A --unstable --check --reload --doc --allow-none --junit-path=\"./report.xml\""
+    "test": "deno test -A --check --reload --doc --allow-none --junit-path=\"./report.xml\""
   },
   "exclude": [
     "./dist/"
