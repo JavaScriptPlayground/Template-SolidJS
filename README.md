@@ -1,5 +1,5 @@
 # Template
-Template for Frontend development.
+Template for Frontend development. Build a web page using [Lit](https://lit.dev) and [Deno](https://deno.land).
 
 ## Overview
 
