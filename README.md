@@ -44,8 +44,8 @@ Template for Frontend development.
 
 Use `deno task <name_of_the_task>`:
 
-- `build` Build the page. 
-- `build:watch` Build the page with active file watcher.
+- `build` Build the page. *(recommended)*
+- `build:watch` Build the page with active file watcher. *(recommended)*
 - `build:dev` Build the page for development (without optimization like minification).
 - `build:dev:watch` Build the page for development (without optimization like minification) with active file watcher.
 - `serve` *Not implemented yet (currently does nothing)*
