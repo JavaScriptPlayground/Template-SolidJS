@@ -3,6 +3,16 @@ Template for Frontend development.
 
 ## Overview
 
+- `.gitignore` Git ignore file.
+- `build.config.ts` Build configuration for [esbuild](https://esbuild.github.io). Only change this if you know what you
+  are doing.
+- `deno.jsonc` [Deno configuration](https://docs.deno.com/runtime/manual/getting_started/configuration_file) file. Only
+  change this if you know what you are doing.
+- `deno.lock` Lock file for all dependencies.
+- `LICENSE` License file.
+- `README.md` This file.
+- `tsconfig.json` TypeScript configuration file. Only change this if you know what you are doing.
+- `.github` [GitHub configuration](https://www.freecodecamp.org/news/how-to-use-the-dot-github-repository/) directory.
 - `deps` External dependencies. This should mimic the url structure of the dependency.
   - `lit.ts` Lit element dependency.
   - `lit` Lit element sub-dependencies.
@@ -23,7 +33,7 @@ Template for Frontend development.
     - `_styles` Page styles. This directory must have a index.scss file as entry point.
       - `index.scss` Page style entry file.
       - `...` Styles.
-    - `...` A subpage as a folder containing the same folder structure as `client`. `...` can
-      have any name. It is recommended to not start with a `_` as these directories are reserved for the page itself.
+    - `...` A subpage as a folder containing the same folder structure as `client`. `...` can have any name. It is
+      recommended to not start with a `_` as these directories are reserved for the page itself.
 - `test` Tests (no unit tests).
   - `e_to_e` End to End tests for the page.
