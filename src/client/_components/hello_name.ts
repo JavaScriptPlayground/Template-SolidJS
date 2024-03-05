@@ -1,4 +1,5 @@
-import {LitElement, TemplateResult, customElement, html, property} from '../../../deps/lit.ts'
+import { customElement, property } from '../../../deps/lit/decorators.ts';
+import { LitElement, TemplateResult, html } from '../../../deps/lit/index.ts'
 
 @customElement('hello-name')
 export class HelloName extends LitElement {
