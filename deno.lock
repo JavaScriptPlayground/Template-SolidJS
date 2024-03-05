@@ -67,6 +67,10 @@
     "https://deno.land/x/esbuild_plugin_sass@v0.4.2/mod.ts": "0c224aa9f478cb1ed2cb9a9cd4ad550c056bb3606247782cb660d76af70f8761",
     "https://deno.land/x/esbuild_plugin_sass@v0.4.2/src/get_text_content.ts": "435b1358e7a24628150350466bed02d1c820f5fa01c461af01c0a9c4ad7e3b34",
     "https://deno.land/x/esbuild_plugin_sass@v0.4.2/src/index.ts": "d283a87abda4aae20f7af26394838ab2e919f6284fbed8e895eb4d28b4ebb0b1",
-    "https://deno.land/x/esbuild_plugin_sass@v0.4.2/src/sass_plugin_setup.ts": "74cdecc65f22b4b22cee422ee75b3edfc28c9576c67ca378e205e9a82a187438"
+    "https://deno.land/x/esbuild_plugin_sass@v0.4.2/src/sass_plugin_setup.ts": "74cdecc65f22b4b22cee422ee75b3edfc28c9576c67ca378e205e9a82a187438",
+    "https://deno.land/x/esbuild_plugin_sass@v0.5.0/mod.ts": "0c224aa9f478cb1ed2cb9a9cd4ad550c056bb3606247782cb660d76af70f8761",
+    "https://deno.land/x/esbuild_plugin_sass@v0.5.0/src/get_text_content.ts": "435b1358e7a24628150350466bed02d1c820f5fa01c461af01c0a9c4ad7e3b34",
+    "https://deno.land/x/esbuild_plugin_sass@v0.5.0/src/index.ts": "d283a87abda4aae20f7af26394838ab2e919f6284fbed8e895eb4d28b4ebb0b1",
+    "https://deno.land/x/esbuild_plugin_sass@v0.5.0/src/sass_plugin_setup.ts": "4021dc2c9a7664b093231048ae536b91d9a3f337d5ac6fd6530b46f967783411"
   }
 }

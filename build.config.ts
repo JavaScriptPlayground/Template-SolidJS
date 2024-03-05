@@ -35,6 +35,8 @@ const filesConfig : esbuild.BuildOptions = {
   color: true,
   minify: !args.develope ?? true,
   outdir: './dist',
+  bundle: true,
+  format: 'esm',
   sourcemap: true,
   sourcesContent: true,
   entryNames: '[dir]/bundle.min',
