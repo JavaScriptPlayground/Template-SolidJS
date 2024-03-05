@@ -37,3 +37,17 @@ Template for Frontend development.
       recommended to not start with a `_` as these directories are reserved for the page itself.
 - `test` Tests (no unit tests).
   - `e_to_e` End to End tests for the page.
+
+## Usage
+
+### Tasks
+
+Use `deno task <name_of_the_task>`:
+
+- `build` Build the page. 
+- `build:watch` Build the page with active file watcher.
+- `build:dev` Build the page for development (without optimization like minification).
+- `build:dev:watch` Build the page for development (without optimization like minification) with active file watcher.
+- `serve` *Not implemented yet (currently does nothing)*
+- `lint` Lint the sourcecode
+- `test` Test your sourcecode (all `.test.ts` file will be checked). A junit report gets generated to `./report.xml`
