@@ -22,6 +22,9 @@
       "ES6",
       "DOM",
       "DOM.Iterable"
+    ],
+    "types": [
+      "./modules.d.ts"
     ]
   },
   "fmt": {
