@@ -8,6 +8,9 @@
       "ES6",
       "DOM",
       "DOM.Iterable"
+    ],
+    "types": [
+      "./module.d.ts"
     ]
   }
 }
