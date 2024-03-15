@@ -24,9 +24,6 @@
       "ES6",
       "DOM",
       "DOM.Iterable"
-    ],
-    "types": [
-      "./index.d.ts"
     ]
   },
   "fmt": {
