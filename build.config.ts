@@ -39,6 +39,7 @@ const filesConfig : esbuild.BuildOptions = {
   format: 'esm',
   sourcemap: true,
   sourcesContent: true,
+  tsconfig: './deno.json',
   entryNames: '[dir]/bundle.min',
   entryPoints: [
     './src/**/index.ts',
