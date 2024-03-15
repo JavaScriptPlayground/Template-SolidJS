@@ -7,6 +7,8 @@ import styles from './hello_name.scss'
 @customElement('hello-name')
 export class HelloName extends LitElement {
 
+  static styles = styles;
+
   @property()
   name = 'Somebody';
 
