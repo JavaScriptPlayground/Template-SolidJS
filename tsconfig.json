@@ -10,7 +10,7 @@
       "DOM.Iterable"
     ],
     "types": [
-      "./modules.d.ts"
+      "./index.d.ts"
     ]
   }
 }
