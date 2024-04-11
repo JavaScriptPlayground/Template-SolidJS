@@ -1,7 +1,7 @@
-/// declare 
 import { customElement, property } from '../../../deps/lit/decorators.ts';
 import { LitElement, TemplateResult, html } from '../../../deps/lit.ts';
 
+// @deno-types="../../../types/scss.d.ts"
 import styles from './hello_name.scss'
 
 @customElement('hello-name')
