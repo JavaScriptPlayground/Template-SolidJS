@@ -11,7 +11,6 @@ Template for Frontend development. Build a web page using [Lit](https://lit.dev)
 - `deno.lock` Lock file for all dependencies.
 - `LICENSE` License file.
 - `README.md` This file.
-- `tsconfig.json` TypeScript configuration file. Only change this if you know what you are doing.
 - `.github` [GitHub configuration](https://www.freecodecamp.org/news/how-to-use-the-dot-github-repository/) directory.
 - `deps` External dependencies. This should mimic the url structure of the dependency.
   - `lit.ts` Lit element dependency.
