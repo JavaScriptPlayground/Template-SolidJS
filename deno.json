@@ -27,6 +27,9 @@
       "webworker",
       "webworker.importscripts",
       "webworker.iterable"
+    ],
+    "types": [
+      "./index.d.ts"
     ]
   },
   "fmt": {
