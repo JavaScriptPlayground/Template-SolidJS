@@ -21,9 +21,12 @@
     "module": "ES6",
     "experimentalDecorators": true,
     "lib": [
-      "ES6",
-      "DOM",
-      "DOM.Iterable"
+      "es6",
+      "dom",
+      "dom.iterable",
+      "webworker",
+      "webworker.importscripts",
+      "webworker.iterable"
     ]
   },
   "fmt": {
