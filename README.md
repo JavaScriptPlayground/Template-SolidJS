@@ -10,8 +10,10 @@ Template for Frontend development. Build a web page using [Lit](https://lit.dev)
 - `LICENSE` License file.
 - `README.md` This file.
 - `.github` [GitHub configuration](https://www.freecodecamp.org/news/how-to-use-the-dot-github-repository/) directory.
-- `build` Build configuration for transpiling to JavaScript.
+- `config` Project specific config files (not part of sourcecode).
   - `build.ts` Build configuration for [esbuild](https://esbuild.github.io). Only change this if you know what you are doing.
+  - `types` Project type declarations.
+    - `...` Declaration.
 - `deps` External dependencies. This should mimic the url structure of the dependency.
   - `lit.ts` Lit element dependency.
   - `lit` Lit element sub-dependencies.
