@@ -4,14 +4,14 @@ Template for Frontend development. Build a web page using [Lit](https://lit.dev)
 ## Overview
 
 - `.gitignore` Git ignore file.
-- `build.config.ts` Build configuration for [esbuild](https://esbuild.github.io). Only change this if you know what you
-  are doing.
 - `deno.jsonc` [Deno configuration](https://docs.deno.com/runtime/manual/getting_started/configuration_file) file. Only
   change this if you know what you are doing.
 - `deno.lock` Lock file for all dependencies.
 - `LICENSE` License file.
 - `README.md` This file.
 - `.github` [GitHub configuration](https://www.freecodecamp.org/news/how-to-use-the-dot-github-repository/) directory.
+- `build` Build configuration for transpiling to JavaScript.
+  - `build.ts` Build configuration for [esbuild](https://esbuild.github.io). Only change this if you know what you are doing.
 - `deps` External dependencies. This should mimic the url structure of the dependency.
   - `lit.ts` Lit element dependency.
   - `lit` Lit element sub-dependencies.
