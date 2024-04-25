@@ -1,9 +1,9 @@
 {
   "tasks": {
-    "build": "deno run -A ./build/build.ts",
-    "build:watch": "deno run -A ./build/build.ts --watch",
-    "build:dev": "deno run -A ./build/build.ts --develope",
-    "build:dev:watch": "deno run -A ./build/build.ts --develope --watch",
+    "build": "deno run -A ./config/build.ts",
+    "build:watch": "deno run -A ./config/build.ts --watch",
+    "build:dev": "deno run -A ./config/build.ts --develope",
+    "build:dev:watch": "deno run -A ./config/build.ts --develope --watch",
     "serve": "",
     "lint": "deno lint",
     "test": "deno test -A --check --reload --doc --allow-none --junit-path=\"./reports/report.xml\""
@@ -32,10 +32,6 @@
       "./index.d.ts"
     ]
   },
-  "fmt": {
-    "singleQuote": true,
-    "lineWidth": 120
-  },
   "lint": {
     "rules": {
       "tags": [
@@ -48,13 +44,27 @@
         "explicit-function-return-type",
         "explicit-module-boundary-types",
         "guard-for-in",
+        "no-const-assign",
         "no-eval",
+        "no-external-import",
+        "no-non-null-asserted-optional-chain",
+        "no-non-null-assertion",
+        "no-self-compare",
         "no-sparse-arrays",
-        "prefer-ascii"
+        "no-sync-fn-in-async-fn",
+        "no-throw-literal",
+        "no-undef",
+        "prefer-ascii",
+        "single-var-declarator",
+        "verbatim-module-syntax"
       ],
       "exclude": [
         "no-inferrable-types"
       ]
     }
+  },
+  "fmt": {
+    "singleQuote": true,
+    "lineWidth": 120
   }
 }
