@@ -29,7 +29,7 @@
       "webworker.iterable"
     ],
     "types": [
-      "./types/scss.d.ts"
+      "./config/types/scss.d.ts"
     ]
   },
   "lint": {
