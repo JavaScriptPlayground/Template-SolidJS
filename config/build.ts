@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-external-import
 /// <reference lib="deno.ns" />
 import * as esbuild from 'https://deno.land/x/esbuild@v0.19.12/mod.js';
 import { sassPlugin } from 'npm:esbuild-sass-plugin'
