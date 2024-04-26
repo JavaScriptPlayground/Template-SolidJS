@@ -1,6 +1,6 @@
 name: Deploy GitHub Pages
 env:
-  enabled: false
+  ENABLED: false
   
 on:
   push:
@@ -25,7 +25,7 @@ concurrency:
 jobs:   
   deploy:
     name: Deploy Pages
-    if: env.enabled
+    if: $ENABLED
     env:
       deno-version: v1.x
       page-root-directory: './dist/'
