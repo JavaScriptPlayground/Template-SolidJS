@@ -25,7 +25,7 @@ concurrency:
 jobs:   
   deploy:
     name: Deploy Pages
-    if: enabled
+    if: env.enabled
     env:
       deno-version: v1.x
       page-root-directory: './dist/'
