@@ -38,7 +38,7 @@ const filesConfig : esbuild.BuildOptions = {
   outdir: './dist',
   bundle: true,
   format: 'esm',
-  target: 'es6',
+  target: "esnext",
   sourcemap: true,
   sourcesContent: true,
   tsconfig: './deno.json',

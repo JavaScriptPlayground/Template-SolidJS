@@ -17,8 +17,6 @@
     ]
   },
   "compilerOptions": {
-    "target": "es6",
-    "module": "es6",
     "experimentalDecorators": true,
     "lib": [
       "es6",
@@ -27,9 +25,6 @@
       "webworker",
       "webworker.importscripts",
       "webworker.iterable"
-    ],
-    "types": [
-      "./config/types/scss.d.ts"
     ]
   },
   "lint": {
@@ -58,9 +53,7 @@
         "single-var-declarator",
         "verbatim-module-syntax"
       ],
-      "exclude": [
-        "no-inferrable-types"
-      ]
+      "exclude": ["no-inferrable-types"]
     }
   },
   "fmt": {

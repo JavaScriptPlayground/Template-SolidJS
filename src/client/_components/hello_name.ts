@@ -1,13 +1,13 @@
 import { customElement, property } from '../../../deps/lit/decorators.ts';
 import { LitElement, type TemplateResult, html } from '../../../deps/lit.ts';
 
-// @deno-types="../../../config/types/scss.d.ts"
-import styles from './hello_name.scss'
+const styles = await import("./hello_name.scss");
+
 
 @customElement('hello-name')
 export class HelloName extends LitElement {
 
-  static styles = styles;
+  static style = styles;
 
   @property()
   name = 'Somebody';
