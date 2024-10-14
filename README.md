@@ -1,9 +1,13 @@
 # Template
+<img src="https://github.com/user-attachments/assets/0aa0318a-d54f-4a73-890c-2eaea890aef3" align="right">
+
 Template for Frontend development. Build a web page using [SolidJS](https://solidjs.com) and [Deno](https://deno.land).
+
 
 [![Run Linter](https://github.com/JavaScriptPlayground/Template/actions/workflows/lint.yml/badge.svg)](https://github.com/JavaScriptPlayground/Template/actions/workflows/lint.yml)
 [![Run Unit Tests](https://github.com/JavaScriptPlayground/Template/actions/workflows/test.yml/badge.svg)](https://github.com/JavaScriptPlayground/Template/actions/workflows/test.yml)
 [![Deploy GitHub Pages](https://github.com/JavaScriptPlayground/Template/actions/workflows/deployment.yml/badge.svg)](https://github.com/JavaScriptPlayground/Template/actions/workflows/deployment.yml)
+
 
 ## Overview
 
