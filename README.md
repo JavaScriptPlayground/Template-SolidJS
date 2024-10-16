@@ -1,7 +1,7 @@
 # Template
 <img src="https://github.com/user-attachments/assets/ca0d1fb9-4f77-4b3d-9812-7590c4208193" align="right" width="128">
 
-Template for Frontend development. Build a web page using [SolidJS](https://solidjs.com) and [Deno](https://deno.land).
+Template for Frontend development. Build a web page using [SolidJS](https://solidjs.com) as frontend framework and [Deno](https://deno.land) as your backend. Clean architecture. No NodeJS required.
 
 
 [![Run Linter](https://github.com/JavaScriptPlayground/Template/actions/workflows/lint.yml/badge.svg)](https://github.com/JavaScriptPlayground/Template/actions/workflows/lint.yml)
