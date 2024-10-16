@@ -10,10 +10,17 @@ const routes: Route[] = [
     )
   },
   {
-    pattern: new URLPattern({ pathname: "/:page(.*)" }),
+    pattern: new URLPattern({ pathname: '/(.+)' }),
     handler: (request) => serveDir(
       request,
       {fsRoot: './dist/route/'}
+    )
+  },
+  {
+    pattern: new URLPattern({ pathname: '/' }),
+    handler: (request) => serveDir(
+      request,
+      {fsRoot: './dist/route/home'}
     )
   }
 ];

@@ -27,11 +27,12 @@ const copyConfig : esbuild.BuildOptions = {
   allowOverwrite: true,
   logLevel: args.logLevel ?? 'info',
   color: true,
-  outdir: './dist',
   loader: loaders,
+  outdir: './dist',
+  outbase: './src/client',
   entryPoints: [
-    './src/client/**/index.html',
-    './src/client/**/_assets/**'
+    './src/client/route/**/index.html',
+    './src/client/static/**/*'
   ]
 }
 
@@ -41,17 +42,18 @@ const filesConfig : esbuild.BuildOptions = {
   legalComments: args.develope ? 'inline' : 'none',
   color: true,
   minify: args.develope ? false : true,
-  outdir: './dist',
   bundle: true,
   format: 'esm',
   target: 'esnext',
   sourcemap: true,
   sourcesContent: true,
   tsconfig: './deno.json',
+  outdir: './dist',
+  outbase: './src/client',
   entryNames: '[dir]/bundle.min',
   entryPoints: [
-    './src/client/**/index.tsx',
-    './src/client/**/index.scss',
+    './src/client/route/**/index.tsx',
+    './src/client/route/**/index.scss',
   ],
   supported: {
     'import-attributes': true,
