@@ -30,8 +30,8 @@ const copyConfig : esbuild.BuildOptions = {
   outdir: './dist',
   loader: loaders,
   entryPoints: [
-    './src/**/index.html',
-    './src/**/_assets/**'
+    './src/client/**/index.html',
+    './src/client/**/_assets/**'
   ]
 }
 
@@ -40,7 +40,7 @@ const filesConfig : esbuild.BuildOptions = {
   logLevel: args.logLevel ?? 'info',
   legalComments: args.develope ? 'inline' : 'none',
   color: true,
-  minify: !args.develope ?? true,
+  minify: args.develope ? false : true,
   outdir: './dist',
   bundle: true,
   format: 'esm',
