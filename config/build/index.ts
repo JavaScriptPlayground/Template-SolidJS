@@ -32,6 +32,7 @@ const copyConfig : esbuild.BuildOptions = {
   outbase: './src/client',
   entryPoints: [
     './src/client/route/**/index.html',
+    './src/client/route/**/assets/*',
     './src/client/static/**/*'
   ]
 }
