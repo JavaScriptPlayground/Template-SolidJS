@@ -1,5 +1,5 @@
 import { route, type Route } from "@std/http/unstable-route";
-import { serveDir, serveFile } from "@std/http/file-server";
+import { serveFile } from "@std/http/file-server";
 
 const routes: Route[] = [
   {
@@ -10,17 +10,17 @@ const routes: Route[] = [
     )
   },
   {
-    pattern: new URLPattern({ pathname: '/(.+)' }),
-    handler: (request) => serveDir(
+    pattern: new URLPattern({ pathname: '/:page' }),
+    handler: (request, _info, parameters) => serveFile(
       request,
-      {fsRoot: './dist/route/'}
+      `./dist/route/${parameters?.pathname.groups.page}/index.html`
     )
   },
   {
     pattern: new URLPattern({ pathname: '/' }),
-    handler: (request) => serveDir(
+    handler: (request) => serveFile(
       request,
-      {fsRoot: './dist/route/home'}
+      `./dist/route/home/index.html`
     )
   }
 ];
