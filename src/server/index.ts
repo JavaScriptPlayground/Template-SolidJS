@@ -2,7 +2,6 @@ import { route, type Route } from "@std/http/unstable-route";
 import { serveFile } from "@std/http/file-server";
 import defaultHandler from './request_handler/default_handler.ts';
 import pageHandler from './request_handler/page_handler.ts';
-import pageAssetsHandler from './request_handler/page_assets_handler.ts';
 
 const routes: Route[] = [
   {
@@ -21,7 +20,7 @@ const routes: Route[] = [
     handler: (request, _info, parameters) => {
       const {page, asset} = parameters?.pathname.groups ?? {}
 
-      return pageAssetsHandler(request, page, asset)
+      return pageHandler(request, page, asset)
     }
   },
   {
