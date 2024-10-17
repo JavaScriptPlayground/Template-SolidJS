@@ -1,4 +1,5 @@
 import { route, type Route } from "@std/http/unstable-route";
+import { STATUS_CODE } from "@std/http";
 import defaultHandler from './request_handler/default_handler.ts';
 import pageHandler from './request_handler/page_handler.ts';
 
@@ -38,11 +39,7 @@ const routes: Route[] = [
   },
   {
     pattern: new URLPattern({ pathname: '/' }),
-    handler: (request) => pageHandler(
-      request,
-      routeDirectory,
-      'home/'
-    )
+    handler: (request) => Response.redirect(request.url + 'home', STATUS_CODE.MovedPermanently)
   }
 ];
 
