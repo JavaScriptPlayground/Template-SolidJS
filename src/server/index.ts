@@ -1,5 +1,5 @@
 import { route, type Route } from "@std/http/unstable-route";
-import { serveFile } from "@std/http/file-server";
+import { serveDir, serveFile } from "@std/http/file-server";
 
 const routes: Route[] = [
   {
@@ -10,11 +10,21 @@ const routes: Route[] = [
     )
   },
   {
-    pattern: new URLPattern({ pathname: '/:page' }),
+    pattern: new URLPattern({ pathname: '/:page([^\/]+\/?)' }),
     handler: (request, _info, parameters) => serveFile(
       request,
       `./dist/route/${parameters?.pathname.groups.page}/index.html`
     )
+  },
+  {
+    pattern: new URLPattern({ pathname: '/:page/:asset*' }),
+    handler: (request, _info, parameters) => {
+      const groups = parameters?.pathname.groups;
+      return serveFile(
+        request,
+        `./dist/route/${groups?.page}/${groups?.asset}`
+      )
+    }
   },
   {
     pattern: new URLPattern({ pathname: '/' }),
@@ -29,4 +39,7 @@ function defaultHandler(_req: Request) : Response {
   return new Response("Not found", { status: 404 });
 }
 
-Deno.serve(route(routes, defaultHandler));
+Deno.serve(
+  {port: 8080},
+  route(routes, defaultHandler)
+);
