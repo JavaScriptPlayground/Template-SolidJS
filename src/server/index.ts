@@ -1,43 +1,34 @@
 import { route, type Route } from "@std/http/unstable-route";
 import { serveFile } from "@std/http/file-server";
+import defaultHandler from './request_handler/default_handler.ts';
+import pageHandler from './request_handler/page_handler.ts';
+import pageAssetsHandler from './request_handler/page_assets_handler.ts';
 
 const routes: Route[] = [
   {
     pattern: new URLPattern({ pathname: "/static/:asset*" }),
     handler: (request, _info, parameters) => serveFile(
       request,
-      './dist/static/' + parameters?.pathname.groups.asset
+      `./dist/static/${parameters?.pathname.groups.asset}`
     )
   },
   {
     pattern: new URLPattern({ pathname: '/:page([^\/]+\/?)' }),
-    handler: (request, _info, parameters) => serveFile(
-      request,
-      `./dist/route/${parameters?.pathname.groups.page}/index.html`
-    )
+    handler: (request, _info, parameters) => pageHandler(request, parameters?.pathname.groups.page)
   },
   {
     pattern: new URLPattern({ pathname: '/:page/:asset*' }),
     handler: (request, _info, parameters) => {
-      const groups = parameters?.pathname.groups;
-      return serveFile(
-        request,
-        `./dist/route/${groups?.page}/${groups?.asset}`
-      )
+      const {page, asset} = parameters?.pathname.groups ?? {}
+
+      return pageAssetsHandler(request, page, asset)
     }
   },
   {
     pattern: new URLPattern({ pathname: '/' }),
-    handler: (request) => serveFile(
-      request,
-      `./dist/route/home/index.html`
-    )
+    handler: (request) => pageHandler(request, 'home')
   }
 ];
-
-function defaultHandler(_req: Request) : Response {
-  return new Response("Not found", { status: 404 });
-}
 
 Deno.serve(
   {port: 8080},
