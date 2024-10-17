@@ -1,5 +1,5 @@
 import { route, type Route } from "@std/http/unstable-route";
-import { serveDir, serveFile } from "@std/http/file-server";
+import { serveFile } from "@std/http/file-server";
 
 const routes: Route[] = [
   {
