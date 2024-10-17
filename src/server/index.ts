@@ -7,7 +7,7 @@ const routeDirectory = `${rootDirectory}/route/`;
 
 const routes: Route[] = [
   {
-    pattern: new URLPattern({ pathname: "/static/:asset*" }),
+    pattern: new URLPattern({ pathname: "/-/:asset*" }),
     handler: (request, _info, parameters) => pageHandler(
       request,
       rootDirectory,
@@ -16,7 +16,7 @@ const routes: Route[] = [
     )
   },
   {
-    pattern: new URLPattern({ pathname: '/:page([^\/]+\/?)' }),
+    pattern: new URLPattern({ pathname: '/:page([a-z0-9]+[a-z0-9-.]*\/?)' }),
     handler: (request, _info, parameters) => pageHandler(
       request,
       routeDirectory,
