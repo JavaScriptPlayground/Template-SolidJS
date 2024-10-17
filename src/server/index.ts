@@ -1,6 +1,5 @@
 import { route, type Route } from "@std/http/unstable-route";
 import { STATUS_CODE } from "@std/http";
-import defaultHandler from './request_handler/default_handler.ts';
 import pageHandler from './request_handler/page_handler.ts';
 
 const rootDirectory = './dist/';
@@ -45,5 +44,5 @@ const routes: Route[] = [
 
 Deno.serve(
   {port: 8080},
-  route(routes, defaultHandler)
+  route(routes, (request) => pageHandler(request, routeDirectory, '404'))
 );
