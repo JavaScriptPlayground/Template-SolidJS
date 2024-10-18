@@ -16,7 +16,7 @@ const routes: Route[] = [
     )
   },
   {
-    pattern: new URLPattern({ pathname: '/:page([a-z0-9]+[a-z0-9-.]*\/?)' }),
+    pattern: new URLPattern({ pathname: '/:page/' }),
     handler: (request, _info, parameters) => pageHandler(
       request,
       routeDirectory,
