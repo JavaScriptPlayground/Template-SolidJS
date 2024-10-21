@@ -1,6 +1,7 @@
 {
   "tasks": {
     "clean-dist": "rm -r ./dist/*",
+    "install": "deno install",
     "build": "deno task clean-dist; deno run -A ./config/build/index.ts",
     "build:watch": "deno run -A ./config/build/index.ts --watch",
     "build:dev": "deno task clean-dist; deno run -A ./config/build/index.ts --develope",
