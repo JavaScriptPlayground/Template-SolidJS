@@ -31,8 +31,8 @@ const copyConfig : esbuild.BuildOptions = {
   outdir: './dist',
   outbase: './src/client',
   entryPoints: [
-    './src/client/route/**/index.html',
-    './src/client/route/**/assets/*',
+    './src/client/app/**/index.html',
+    './src/client/app/**/assets/*',
     './src/client/static/**/*'
   ]
 }
@@ -53,8 +53,8 @@ const filesConfig : esbuild.BuildOptions = {
   outbase: './src/client',
   entryNames: '[dir]/bundle.min',
   entryPoints: [
-    './src/client/route/**/index.tsx',
-    './src/client/route/**/index.scss',
+    './src/client/app/**/index.tsx',
+    './src/client/app/**/index.scss',
   ],
   supported: {
     'import-attributes': true,
