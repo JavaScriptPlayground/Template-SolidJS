@@ -15,20 +15,22 @@ const routes: Route[] = [
     )
   },
   {
-    pattern: new URLPattern({ pathname: '/:path*/assets/:dynamicAsset*' }),
+    pattern: new URLPattern({ pathname: '/:asset' }),
     handler: (request, _info, parameters) => {
-      const {path, dynamicAsset} = parameters?.pathname.groups ?? {};
+      const {asset} = parameters?.pathname.groups ?? {};
       return pageHandler(
         request,
         appDirectory,
-        path,
-        '/assets/' + dynamicAsset
+        '',
+        asset
       );
     }
   },
   {
-    pattern: new URLPattern({ pathname: '/:path(.*)' }),
-    handler: (request) => {
+    pattern: new URLPattern({ pathname: '/:page([^\.]*)' }),
+    handler: (request, _info, parameters) => {
+      console.log('page', parameters?.pathname.groups.page);
+      
       return pageHandler(request, appDirectory, '')
     }
   }

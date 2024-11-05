@@ -51,7 +51,7 @@ const filesConfig : esbuild.BuildOptions = {
   tsconfig: './deno.json',
   outdir: './dist',
   outbase: './src/client',
-  entryNames: '[dir]/bundle.min',
+  entryNames: '[dir]/bundle',
   entryPoints: [
     './src/client/app/**/index.tsx',
     './src/client/app/**/index.scss',
