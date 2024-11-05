@@ -1,20 +1,10 @@
 import { route, type Route } from "@std/http/unstable-route";
-import { STATUS_CODE } from "@std/http";
 import pageHandler from './request_handler/page_handler.ts';
 
 const rootDirectory = './dist/';
 const appDirectory = `${rootDirectory}/app/`;
 
 const routes: Route[] = [
-  {
-    pattern: new URLPattern({ pathname: '/' }),
-    handler: (request) => {
-      return Response.redirect(
-        request.url + 'home',
-        STATUS_CODE.MovedPermanently
-      )
-    }
-  },
   {
     pattern: new URLPattern({ pathname: "/-/:staticAsset*" }),
     handler: (request, _info, parameters) => pageHandler(
@@ -36,15 +26,12 @@ const routes: Route[] = [
       );
     }
   },
-  // {
-  //   pattern: new URLPattern({ pathname: '/:path([^\.]+$)' }),
-  //   handler: (request, _info, parameters) => {
-  //     const {path} = parameters?.pathname.groups ?? {};
-  //     console.log('page', path)
-  //     return pageHandler(request, appDirectory, '')
-  //   }
-  // },
-  
+  {
+    pattern: new URLPattern({ pathname: '/:path(.*)' }),
+    handler: (request) => {
+      return pageHandler(request, appDirectory, '')
+    }
+  }
 ];
 
 Deno.serve(
