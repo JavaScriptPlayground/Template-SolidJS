@@ -1,4 +1,5 @@
 {
+  "license": "./LICENSE",
   "tasks": {
     "clean-dist": "rm -r ./dist/*",
     "install": "deno install",
