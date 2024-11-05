@@ -17,6 +17,6 @@ export default function pageHandler(
 ) : Promise<Response> {
   return serveFile(
     request,
-    `${root}/${page}/${file}`
+    `${root}/${page ?? ''}/${file}`
   )
 }
