@@ -15,8 +15,6 @@ export default function pageHandler(
   page : string | undefined,
   file : string = 'index.html'
 ) : Promise<Response> {
-  console.log('Serving:', `${root}/${page ?? ''}/${file}`);
-  
   return serveFile(
     request,
     `${root}/${page ?? ''}/${file}`

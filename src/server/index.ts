@@ -15,6 +15,14 @@ const routes: Route[] = [
     )
   },
   {
+    pattern: new URLPattern({ pathname: '/:page([^\.]*)' }),
+    handler: (request, _info, parameters) => {
+      console.log('page', parameters?.pathname.groups.page);
+      
+      return pageHandler(request, appDirectory, '')
+    }
+  },
+  {
     pattern: new URLPattern({ pathname: '/:asset' }),
     handler: (request, _info, parameters) => {
       const {asset} = parameters?.pathname.groups ?? {};
@@ -26,14 +34,6 @@ const routes: Route[] = [
       );
     }
   },
-  {
-    pattern: new URLPattern({ pathname: '/:page([^\.]*)' }),
-    handler: (request, _info, parameters) => {
-      console.log('page', parameters?.pathname.groups.page);
-      
-      return pageHandler(request, appDirectory, '')
-    }
-  }
 ];
 
 Deno.serve(
