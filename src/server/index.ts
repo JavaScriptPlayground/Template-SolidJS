@@ -1,48 +1,43 @@
 import { route, type Route } from "@std/http/unstable-route";
-import { STATUS_CODE } from "@std/http";
+import { serveFile } from "@std/http";
 import pageHandler from './request_handler/page_handler.ts';
 
 const rootDirectory = './dist/';
-const routeDirectory = `${rootDirectory}/route/`;
+const appDirectory = `${rootDirectory}/app/`;
 
 const routes: Route[] = [
   {
-    pattern: new URLPattern({ pathname: "/-/:asset*" }),
+    pattern: new URLPattern({ pathname: "/-/:staticAsset*" }),
     handler: (request, _info, parameters) => pageHandler(
       request,
       rootDirectory,
       'static/',
-      parameters?.pathname.groups.asset
+      parameters?.pathname.groups.staticAsset
     )
   },
   {
-    pattern: new URLPattern({ pathname: '/:page/' }),
-    handler: (request, _info, parameters) => pageHandler(
-      request,
-      routeDirectory,
-      parameters?.pathname.groups.page
-    )
-  },
-  {
-    pattern: new URLPattern({ pathname: '/:page/:asset*' }),
+    pattern: new URLPattern({ pathname: '/:path*' }),
     handler: (request, _info, parameters) => {
-      const {page, asset} = parameters?.pathname.groups ?? {};
-
-      return pageHandler(
-        request,
-        routeDirectory,
-        page,
-        asset
-      );
+      console.log(parameters?.pathname.groups.path)
+      return serveFile(request, appDirectory+'index.html')
     }
   },
   {
-    pattern: new URLPattern({ pathname: '/' }),
-    handler: (request) => Response.redirect(request.url + 'home', STATUS_CODE.MovedPermanently)
+    pattern: new URLPattern({ pathname: '/:page/:dynamicAsset*' }),
+    handler: (request, _info, parameters) => {
+      const {page, dynamicAsset} = parameters?.pathname.groups ?? {};
+
+      return pageHandler(
+        request,
+        appDirectory,
+        page,
+        dynamicAsset
+      );
+    }
   }
 ];
 
 Deno.serve(
   {port: 8080},
-  route(routes, (request) => pageHandler(request, routeDirectory, '404'))
+  route(routes, (request) => pageHandler(request, appDirectory, '404'))
 );
