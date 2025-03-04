@@ -53,15 +53,14 @@ const filesConfig : esbuild.BuildOptions = {
   outbase: './src/client',
   entryNames: '[dir]/bundle',
   entryPoints: [
-    './src/client/app/**/index.tsx',
-    './src/client/app/**/index.scss',
+    './src/client/app/**/index.tsx'
   ],
   supported: {
     'import-attributes': true,
     'nesting': true
   },
   plugins: [
-    esbuildPluginSass(),
+    esbuildPluginSass({type: "css-text"}),
     esbuildPluginSolidJs({solid: {moduleName: '@solid-js/web'}})
   ],
   alias: importMap.imports,

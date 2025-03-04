@@ -5,8 +5,8 @@
     "@esbuild-plugin-solid-js": "npm:esbuild-plugin-solid",
     "@solid-js": "https://esm.sh/solid-js@1.8.22",
     "@solid-js/web": "https://esm.sh/solid-js@1.8.22/web",
-    "@std/cli": "jsr:@std/cli@^1.0.6",
-    "@std/http": "jsr:@std/http@^1.0.6",
-    "@std/fmt": "jsr:@std/fmt@^1.0.2"
+    "@std/cli/parse-args": "jsr:@std/cli@^1.0.6/parse-args",
+    "@std/http/unstable-route": "jsr:@std/http@^1.0.6/unstable-route",
+    "@std/fmt/colors": "jsr:@std/fmt@^1.0.2/colors"
   }
 }

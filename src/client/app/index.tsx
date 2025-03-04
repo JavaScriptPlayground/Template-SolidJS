@@ -1,2 +1,3 @@
-import 'index.scss'
+import styles from './index.scss'
 
+console.log(styles)
