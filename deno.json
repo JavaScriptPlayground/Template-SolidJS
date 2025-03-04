@@ -1,7 +1,7 @@
 {
   "license": "./LICENSE",
   "tasks": {
-    "clean-dist": "rm -r ./dist/*",
+    "clean-dist": "rm -r ./dist/* || exit 0",
     "install": "deno install",
     "build": {
       "description": "Build the app for production.",
