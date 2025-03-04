@@ -6,19 +6,19 @@
   padding: 0;
 }
 
-body {
+.app {
   display: grid;
   padding: 100px;
   height: 100vh;
   justify-content: center;
   background-color: #e0e0e0;
-}
 
-.title {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
-}
+  .title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+  }
 
-.logo {
-  width: 250px;
+  .logo {
+    width: 250px;
+  }
 }

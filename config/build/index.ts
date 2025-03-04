@@ -62,8 +62,8 @@ const filesConfig : esbuild.BuildOptions = {
   },
   plugins: [
     esbuildPluginSass({
-      type: "css-text",
-      transform: (source) => args.develop ? source : minify(source).css
+      type: "local-css",
+      transform: (source) => args.develop ? source : minify(source)
     }),
     esbuildPluginSolidJs({solid: {moduleName: '@solid-js/web'}})
   ],
