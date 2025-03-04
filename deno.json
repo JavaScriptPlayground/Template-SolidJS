@@ -3,15 +3,41 @@
   "tasks": {
     "clean-dist": "rm -r ./dist/*",
     "install": "deno install",
-    "build": "deno task clean-dist; deno run -A ./config/build/index.ts",
-    "build:watch": "deno run -A ./config/build/index.ts --watch",
-    "build:dev": "deno task clean-dist; deno run -A ./config/build/index.ts --develope",
-    "build:dev:watch": "deno run -A ./config/build/index.ts --develope --watch",
+    "build": {
+      "description": "Build the app for production.",
+      "command": "deno run -A ./config/build/index.ts",
+      "dependencies": [ "clean-dist" ]
+    },
+    "build:watch": {
+      "description": "Build the app for production with watcher.",
+      "command": "deno run -A ./config/build/index.ts --watch",
+      "dependencies": [ "clean-dist" ]
+    },
+    "build:dev": {
+      "description": "Build the app for development.",
+      "command": "deno run -A ./config/build/index.ts --develope",
+      "dependencies": [ "clean-dist" ]
+    },
+    "build:dev:watch": {
+      "description": "Build the app for development with watcher.",
+      "command": "deno run -A ./config/build/index.ts --develope --watch",
+      "dependencies": [ "clean-dist" ]
+    },
     "cache": "deno cache --reload .",
-    "serve": "deno run -A ./src/server/index.ts",
-    "serve:dev": "deno run -A ./src/server/index.ts --develope --port=8000",
+    "serve": {
+      "description": "Run the server on port 8000 for production.",
+      "command": "deno run -A ./src/server/index.ts"
+    },
+    "serve:dev": {
+      "description": "Run the server on port 8000 for production.",
+      "command": "deno run -A ./src/server/index.ts --develope --port=8000"
+    },
     "lint": "deno lint",
-    "test": "deno test -A --check --reload --doc --permit-no-files --junit-path=\"./reports/report.xml\""
+    "test": {
+      "description": "Run unit tests. Junit reports will be saved to \"./reports/report.xml\".",
+      "command": "deno test -A --check --reload --doc --permit-no-files --junit-path=\"./reports/report.xml\"",
+      "dependencies": [ "build" ]
+    }
   },
   "lock": "./config/lock.json",
   "importMap": "./config/import_map.json",
@@ -73,7 +99,9 @@
     }
   },
   "fmt": {
-    "singleQuote": true,
-    "lineWidth": 120
+    "options": {
+      "singleQuote": true,
+      "lineWidth": 120
+    }
   }
 }
