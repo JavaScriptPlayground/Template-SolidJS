@@ -16,14 +16,14 @@ jobs:
     name: Unit Test
     runs-on: ubuntu-latest
     env:
-      deno-version: v1.x
+      deno-version: v2.x
 
     steps:
       - name: Setup Repository (${{github.event.repository.name}})
         uses: actions/checkout@v4
 
       - name: Setup Deno (${{env.deno-version}})
-        uses: denoland/setup-deno@v1.1.4
+        uses: denoland/setup-deno@v2
         with:
           deno-version: ${{env.deno-version}}
       
