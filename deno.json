@@ -19,12 +19,12 @@
     },
     "build:dev": {
       "description": "Build the app for development.",
-      "command": "deno run -A ./config/build/index.ts --develope",
+      "command": "deno run -A ./config/build/index.ts --develop",
       "dependencies": [ "clear-dist" ]
     },
     "build:dev:watch": {
       "description": "Build the app for development with watcher.",
-      "command": "deno run -A ./config/build/index.ts --develope --watch",
+      "command": "deno run -A ./config/build/index.ts --develop --watch",
       "dependencies": [ "clear-dist" ]
     },
     "cache-reload": {
@@ -38,7 +38,7 @@
     },
     "serve:dev": {
       "description": "Run the server on port 8000 for development.",
-      "command": "deno run -A ./src/server/index.ts --develope --port=8000",
+      "command": "deno run -A ./src/server/index.ts --develop --port=8000",
       "dependencies": [ "build" ]
     },
     "lint": {

@@ -11,7 +11,7 @@ import filesToCopy from './copy_files_extension_filter.json' with {type: 'json'}
 
 const args = parseArgs<{
   watch: boolean | undefined,
-  develope: boolean | undefined,
+  develop: boolean | undefined,
   logLevel: esbuild.LogLevel
 }>(Deno.args);
 
@@ -41,9 +41,9 @@ const copyConfig : esbuild.BuildOptions = {
 const filesConfig : esbuild.BuildOptions = {
   allowOverwrite: true,
   logLevel: args.logLevel ?? 'info',
-  legalComments: args.develope ? 'inline' : 'none',
+  legalComments: args.develop ? 'inline' : 'none',
   color: true,
-  minify: args.develope ? false : true,
+  minify: args.develop ? false : true,
   bundle: true,
   format: 'esm',
   target: 'esnext',
@@ -63,7 +63,7 @@ const filesConfig : esbuild.BuildOptions = {
   plugins: [
     esbuildPluginSass({
       type: "css-text",
-      transform: (source) => args.develope ? minify(source).css : source
+      transform: (source) => args.develop ? source : minify(source).css
     }),
     esbuildPluginSolidJs({solid: {moduleName: '@solid-js/web'}})
   ],
