@@ -2,6 +2,7 @@
 import * as esbuild from '@esbuild';
 import { sassPlugin as esbuildPluginSass } from '@esbuild-plugin-sass';
 import { solidPlugin as esbuildPluginSolidJs } from '@esbuild-plugin-solid-js';
+import { minify } from '@csso'
 import { green } from '@std/fmt/colors';
 import { parseArgs } from '@std/cli/parse-args';
 
@@ -60,7 +61,10 @@ const filesConfig : esbuild.BuildOptions = {
     'nesting': true
   },
   plugins: [
-    esbuildPluginSass({type: "css-text"}),
+    esbuildPluginSass({
+      type: "css-text",
+      transform: (source) => args.develope ? minify(source).css : source
+    }),
     esbuildPluginSolidJs({solid: {moduleName: '@solid-js/web'}})
   ],
   alias: importMap.imports,
