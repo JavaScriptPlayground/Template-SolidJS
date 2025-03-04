@@ -4,7 +4,7 @@ import pageHandler from './request_handler/page_handler.ts';
 const rootDirectory = './dist/';
 const appDirectory = `${rootDirectory}/app/`;
 
-const routes: Route[] = [
+const routes : Route[] = [
   {
     pattern: new URLPattern({ pathname: "/-/:staticAsset*" }),
     handler: (request, _info, parameters) => pageHandler(

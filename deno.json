@@ -39,6 +39,9 @@
     ]
   },
   "lint": {
+    "plugins": [
+      "https://raw.githubusercontent.com/DenoPlayground/lint-plugins/refs/heads/main/src/types/type_colon_spacing.ts"
+    ],
     "rules": {
       "tags": [
         "recommended"

@@ -850,7 +850,8 @@
     "https://esm.sh/stable/solid-js@1.8.22/denonext/solid-js.mjs": "4cd2354177e205a27a98777c993dd88769af4d823440f58ab2f2b9f313b410eb",
     "https://esm.sh/stable/solid-js@1.8.22/denonext/web.js": "04191035000f7e52a944717e8094b76fef6aee8216e39bb722a19e3ff895fd3c",
     "https://esm.sh/v135/seroval-plugins@1.1.0/denonext/web.js": "c4f53137d16600468bd48d5847575b5d2f20db14cb1c3b773bc41acb1273e26e",
-    "https://esm.sh/v135/seroval@1.1.0/denonext/seroval.mjs": "ca7833350589a0a822d6b30770c92fc8fe605680d339746ecbe569c6cdcbf307"
+    "https://esm.sh/v135/seroval@1.1.0/denonext/seroval.mjs": "ca7833350589a0a822d6b30770c92fc8fe605680d339746ecbe569c6cdcbf307",
+    "https://raw.githubusercontent.com/DenoPlayground/lint-plugins/refs/heads/main/src/types/type_colon_spacing.ts": "cab99764f93888688e45a9b6fd08b01d3897f44e5ba09ee78168ca67e85877e4"
   },
   "workspace": {
     "dependencies": [
