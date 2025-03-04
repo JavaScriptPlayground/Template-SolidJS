@@ -26,10 +26,10 @@
     "cache": "deno cache --reload .",
     "serve": {
       "description": "Run the server on port 8000 for production.",
-      "command": "deno run -A ./src/server/index.ts"
+      "command": "deno run -A ./src/server/index.ts --port=8000"
     },
     "serve:dev": {
-      "description": "Run the server on port 8000 for production.",
+      "description": "Run the server on port 8000 for development.",
       "command": "deno run -A ./src/server/index.ts --develope --port=8000"
     },
     "lint": "deno lint",
