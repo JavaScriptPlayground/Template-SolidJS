@@ -1,29 +1,36 @@
 {
   "license": "./LICENSE",
   "tasks": {
-    "clean-dist": "rm -r ./dist/* || exit 0",
-    "install": "deno install",
+    "clear-dist": "rm -r ./dist/* || exit 0",
+    "clear-reports": "rm -r ./reports/* || exit 0",
+    "install": {
+      "description": "Install all dependencies specified in the \"deno.lock\" file.",
+      "command": "deno install"
+    },
     "build": {
       "description": "Build the app for production.",
       "command": "deno run -A ./config/build/index.ts",
-      "dependencies": [ "clean-dist" ]
+      "dependencies": [ "clear-dist" ]
     },
     "build:watch": {
       "description": "Build the app for production with watcher.",
       "command": "deno run -A ./config/build/index.ts --watch",
-      "dependencies": [ "clean-dist" ]
+      "dependencies": [ "clear-dist" ]
     },
     "build:dev": {
       "description": "Build the app for development.",
       "command": "deno run -A ./config/build/index.ts --develope",
-      "dependencies": [ "clean-dist" ]
+      "dependencies": [ "clear-dist" ]
     },
     "build:dev:watch": {
       "description": "Build the app for development with watcher.",
       "command": "deno run -A ./config/build/index.ts --develope --watch",
-      "dependencies": [ "clean-dist" ]
+      "dependencies": [ "clear-dist" ]
     },
-    "cache": "deno cache --reload .",
+    "cache-reload": {
+      "description": "Reload the dependency cache.",
+      "command": "deno cache --reload ."
+    },
     "serve": {
       "description": "Run the server on port 8000 for production.",
       "command": "deno run -A ./src/server/index.ts --port=8000",
@@ -34,11 +41,14 @@
       "command": "deno run -A ./src/server/index.ts --develope --port=8000",
       "dependencies": [ "build" ]
     },
-    "lint": "deno lint",
+    "lint": {
+      "description": "Run linter.",
+      "command": "deno lint"
+    },
     "test": {
       "description": "Run unit tests. Junit reports will be saved to \"./reports/report.xml\".",
       "command": "deno test -A --check --reload --doc --permit-no-files --junit-path=\"./reports/report.xml\"",
-      "dependencies": [ "build" ]
+      "dependencies": [ "clear-reports" ]
     }
   },
   "lock": "./config/lock.json",
