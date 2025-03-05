@@ -1,7 +1,7 @@
-import styles from './index.scss'
-
 import { render } from "@solid-js/web";
 import { createSignal, type JSXElement } from "@solid-js";
+
+import './index.scss'
 
 function App() : JSXElement {
   const [count, setCount] = createSignal(1);

@@ -2,7 +2,6 @@
 import * as esbuild from '@esbuild';
 import { sassPlugin as esbuildPluginSass } from '@esbuild-plugin-sass';
 import { solidPlugin as esbuildPluginSolidJs } from '@esbuild-plugin-solid-js';
-import { minify } from '@csso'
 import { green } from '@std/fmt/colors';
 import { parseArgs } from '@std/cli/parse-args';
 
@@ -62,8 +61,7 @@ const filesConfig : esbuild.BuildOptions = {
   },
   plugins: [
     esbuildPluginSass({
-      type: "local-css",
-      transform: (source) => args.develop ? source : minify(source)
+      type: 'style'
     }),
     esbuildPluginSolidJs({solid: {moduleName: '@solid-js/web'}})
   ],

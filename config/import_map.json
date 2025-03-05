@@ -1,9 +1,8 @@
 {
   "imports": {
-    "@esbuild": "npm:esbuild@^0.23.1",
+    "@esbuild": "npm:esbuild",
     "@esbuild-plugin-sass": "npm:esbuild-sass-plugin",
     "@esbuild-plugin-solid-js": "npm:esbuild-plugin-solid",
-    "@csso": "npm:csso",
     "@solid-js": "https://esm.sh/solid-js@1.8.22",
     "@solid-js/web": "https://esm.sh/solid-js@1.8.22/web",
     "@std/cli/parse-args": "jsr:@std/cli@^1.0.6/parse-args",
