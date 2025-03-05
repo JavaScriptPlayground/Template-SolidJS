@@ -1,7 +1,7 @@
 /// <reference lib="deno.ns" />
 import * as esbuild from '@esbuild';
-import { sassPlugin as esbuildPluginSass } from '@esbuild-plugin-sass';
-import { solidPlugin as esbuildPluginSolidJs } from '@esbuild-plugin-solid-js';
+import { sassPlugin as esbuildPluginSass } from '@esbuild-sass-plugin';
+import { solidPlugin as esbuildPluginSolidJs } from '@esbuild-plugin-solid';
 import { green } from '@std/fmt/colors';
 import { parseArgs } from '@std/cli/parse-args';
 
