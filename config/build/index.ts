@@ -60,9 +60,7 @@ const filesConfig : esbuild.BuildOptions = {
     'nesting': true
   },
   plugins: [
-    esbuildPluginSass({
-      type: 'style'
-    }),
+    esbuildPluginSass({type: 'style'}),
     esbuildPluginSolidJs({solid: {moduleName: '@solid-js/web'}})
   ],
   alias: importMap.imports,
