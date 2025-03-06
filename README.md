@@ -72,4 +72,4 @@ Use `deno task <name_of_the_task>`:
 
 ## License
 
-[GPL Version 3.0 Copyright (C) 2024 Max](./LICENSE)
+[GPL Version 3.0 Copyright (C) 2025 Max](./LICENSE)
