@@ -28,6 +28,9 @@ Template for Frontend development. Build a web page using [SolidJS](https://soli
   - `...` Doc.
 - `src` All sourcecode.
   - `client` Sourcecode for the client.
+    - `app` The main app.
+    - `components` Generic components for the page.
+    - `static` Static assets for the page.
     - `...` Client files.
   - `server` Sourcecode for the server.
     - `...` Server files.
@@ -35,10 +38,6 @@ Template for Frontend development. Build a web page using [SolidJS](https://soli
   - `e_to_e` End to End tests for the page.
 
 ## Usage
-
-> [!WARNING]
-> There is currently an issue with the global variable `document`. [Link to issue.](https://github.com/denoland/deno_lint/issues/590)
-
 ### Getting started
 Checkout the template and run initial [`deno task cache`](#tasks). This will cache all the necessary dependencies.
 If you still getting import errors, try reloading the "import registries cache".
@@ -54,7 +53,7 @@ Use `deno task <name_of_the_task>`:
 - `build:watch` Build the page with active file watcher. *(recommended)*
 - `build:dev` Build the page for development (without optimization like minification).
 - `build:dev:watch` Build the page for development (without optimization like minification) with active file watcher.
-- `cache` Cache all dependencies.
+- `cache-reload` Cache all dependencies.
 - `serve` Serve the build `dist` directory as the page root. *(recommended)*
 - `serve:dev` Serve the build `dist` directory as the page root for development (with verbose logging and directory listing enabled).
 - `lint` Lint the sourcecode
