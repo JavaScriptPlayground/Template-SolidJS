@@ -1,7 +1,8 @@
 # Template
 <img src="https://github.com/user-attachments/assets/ca0d1fb9-4f77-4b3d-9812-7590c4208193" align="right" width="128">
 
-Template for Frontend development. Build a web page using [SolidJS](https://solidjs.com) as frontend framework and [Deno](https://deno.land) as your backend. Clean architecture. No NodeJS required.
+Template for Frontend development. Build a web page using [SolidJS](https://solidjs.com) as frontend framework and
+[Deno](https://deno.land) as your backend. Clean architecture. No NodeJS required.
 
 
 [![Run Linter](https://github.com/JavaScriptPlayground/Template/actions/workflows/lint.yml/badge.svg)](https://github.com/JavaScriptPlayground/Template/actions/workflows/lint.yml)
@@ -18,10 +19,12 @@ Template for Frontend development. Build a web page using [SolidJS](https://soli
 - `.github` [GitHub configuration](https://www.freecodecamp.org/news/how-to-use-the-dot-github-repository/) directory.
 - `config` Project specific config files (not part of sourcecode).
   - `deno.lock` Lock file for all dependencies.
-  - `import_map.json` [Import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap) for all imports.
+  - `import_map.json` [Import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap) for 
+    all imports.
   - `build` Build configuration files.
     - `copy_files_extension_filter.json` JSON array of extensions for files that should be copied to the dist folder.
-    - `index.ts` Build configuration for [esbuild](https://esbuild.github.io). Only change this if you know what you are doing.
+    - `index.ts` Build configuration for [esbuild](https://esbuild.github.io). Only change this if you know what you are
+      doing.
   - `types` Project type declarations.
     - `...` Declaration.
 - `doc` Documentation for the page.
@@ -55,12 +58,15 @@ Use `deno task <name_of_the_task>`:
 - `build:dev:watch` Build the page for development (without optimization like minification) with active file watcher.
 - `cache-reload` Cache all dependencies.
 - `serve` Serve the build `dist` directory as the page root. *(recommended)*
-- `serve:dev` Serve the build `dist` directory as the page root for development (with verbose logging and directory listing enabled).
+- `serve:dev` Serve the build `dist` directory as the page root for development (with verbose logging and directory 
+  listing enabled).
 - `lint` Lint the sourcecode
-- `test` Test your sourcecode (all `.test.ts` file will be checked). A junit report gets generated to `./reports/report.xml`
+- `test` Test your sourcecode (all `.test.ts` file will be checked). A junit report gets generated to
+  `./reports/report.xml`
 
 ### GitHub Workflows
-- `deployment.yml` Deploys your current app to GitHub Pages if the name of your repository ends with `.github.io`. (Ex. `github.com/foo/foo.github.io`)
+- `deployment.yml` Deploys your current app to GitHub Pages if the name of your repository ends with `.github.io`.
+  (Ex. `github.com/foo/foo.github.io`)
 - `lint.yml` Lints your sourcecode.
 - `test.yml` Runs all the unit tests.
 
