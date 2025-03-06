@@ -18,4 +18,8 @@ function App() : JSXElement {
   );
 }
 
-render(() => <App/>, document.getElementById("root")!);
+const root = globalThis.document.getElementById("root")
+if (!root) {
+  throw new Error('No root element found.')
+}
+render(() => <App/>, root);
