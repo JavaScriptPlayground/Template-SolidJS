@@ -873,13 +873,19 @@
     }
   },
   "redirects": {
+    "https://esm.sh/@solidjs/router": "https://esm.sh/@solidjs/router@0.15.3",
     "https://esm.sh/esbuild": "https://esm.sh/esbuild@0.25.0",
     "https://esm.sh/esbuild@^0.25.0": "https://esm.sh/esbuild@0.25.0",
     "https://esm.sh/seroval-plugins@^1.1.0/web?target=denonext": "https://esm.sh/seroval-plugins@1.2.1/web?target=denonext",
     "https://esm.sh/seroval@^1.0?target=denonext": "https://esm.sh/seroval@1.2.1?target=denonext",
-    "https://esm.sh/seroval@^1.1.0?target=denonext": "https://esm.sh/seroval@1.2.1?target=denonext"
+    "https://esm.sh/seroval@^1.1.0?target=denonext": "https://esm.sh/seroval@1.2.1?target=denonext",
+    "https://esm.sh/solid-js@^1.8.6/store?target=denonext": "https://esm.sh/solid-js@1.9.5/store?target=denonext",
+    "https://esm.sh/solid-js@^1.8.6/web?target=denonext": "https://esm.sh/solid-js@1.9.5/web?target=denonext",
+    "https://esm.sh/solid-js@^1.8.6?target=denonext": "https://esm.sh/solid-js@1.9.5?target=denonext"
   },
   "remote": {
+    "https://esm.sh/@solidjs/router@0.15.3": "4e10bfcf58c19daf7b7955c5e59fe0d0b62c5999b499d22693b66ff0d2f663f6",
+    "https://esm.sh/@solidjs/router@0.15.3/denonext/router.mjs": "74c244802cb30f24c7bd9b0b001b84c0e8ad0aae98e176f1528ab22783c17269",
     "https://esm.sh/esbuild@0.25.0": "e72e8a8451013de53094ef517c72eb707f1e2de1ab6db49bd6b5e36e44058623",
     "https://esm.sh/esbuild@0.25.0/denonext/esbuild.mjs": "c08be8d7aae2aed52d9772ebdcddc7715f34dec139e757f73e57809b44ce1cea",
     "https://esm.sh/seroval-plugins@1.2.1/denonext/web.mjs": "48ded2c23e0708cd1092aaa49b2a4b1d095f2df4d5ccf607c46f7e0548f9b493",
@@ -890,6 +896,12 @@
     "https://esm.sh/solid-js@1.8.22/denonext/solid-js.mjs": "a85e1131dcb1cc2aad2bfeaf030f800eef2f5025a7f0fb72d379a21c90228dfe",
     "https://esm.sh/solid-js@1.8.22/denonext/web.mjs": "d3fef3321442095f4ce6d77a59560b7b138eef150010b319087ed8423448386a",
     "https://esm.sh/solid-js@1.8.22/web": "58c667b36ee4b2d4a67fb924b5c79d5a0927d67cbdec0de89dda8dbe28798a6f",
+    "https://esm.sh/solid-js@1.9.5/denonext/solid-js.mjs": "3c7ed4219bd663583dadc1faa28f0dd03a48c887fc4d659afb173a52254f1b56",
+    "https://esm.sh/solid-js@1.9.5/denonext/store.mjs": "0d91d129e6d81735315232392e74983b12e03a249c1440fb6587009d0fe31fca",
+    "https://esm.sh/solid-js@1.9.5/denonext/web.mjs": "22b40b5efe0a208783d0705a1c1d9f2dab857b7041ce9e2fc1c8c39a95fb3ecc",
+    "https://esm.sh/solid-js@1.9.5/store?target=denonext": "7b8f810b188202719d358db0b4b12fabd0409f03f8051faa827cac1dab11304f",
+    "https://esm.sh/solid-js@1.9.5/web?target=denonext": "24e92b47cfa25e0f1c4f935c5b910de098fbe15b7d9a4284b9c8cbdfe9bdb1c0",
+    "https://esm.sh/solid-js@1.9.5?target=denonext": "da5e46cac567aea0192636de05d13b09c0b37a178b2e6bb2eda8ea00f11f06ae",
     "https://raw.githubusercontent.com/DenoPlayground/lint-plugins/refs/heads/main/src/types/type_colon_spacing.ts": "cab99764f93888688e45a9b6fd08b01d3897f44e5ba09ee78168ca67e85877e4"
   },
   "workspace": {
