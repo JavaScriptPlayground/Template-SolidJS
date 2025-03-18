@@ -6,7 +6,7 @@ const appDirectory = `${rootDirectory}/app/`;
 
 const routes : Route[] = [
   {
-    pattern: new URLPattern({ pathname: "/-/:staticAsset*" }),
+    pattern: new URLPattern({ pathname: "/static/:staticAsset*" }),
     handler: (request, _info, parameters) => pageHandler(
       request,
       rootDirectory,
@@ -15,23 +15,19 @@ const routes : Route[] = [
     )
   },
   {
-    pattern: new URLPattern({ pathname: '/:page([^\.]*)' }),
+    pattern: new URLPattern({ pathname: '/index.js' }),
+    handler: (request, _info, parameters) => {
+      console.log('page', parameters?.pathname.groups.page);
+      
+      return pageHandler(request, appDirectory, '', 'index.js')
+    }
+  },
+  {
+    pattern: new URLPattern({ pathname: '/app:page(|\/.*)' }),
     handler: (request, _info, parameters) => {
       console.log('page', parameters?.pathname.groups.page);
       
       return pageHandler(request, appDirectory, '')
-    }
-  },
-  {
-    pattern: new URLPattern({ pathname: '/:asset' }),
-    handler: (request, _info, parameters) => {
-      const {asset} = parameters?.pathname.groups ?? {};
-      return pageHandler(
-        request,
-        appDirectory,
-        '',
-        asset
-      );
     }
   },
 ];

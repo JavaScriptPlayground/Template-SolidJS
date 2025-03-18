@@ -49,11 +49,10 @@ const filesConfig : esbuild.BuildOptions = {
   sourcemap: true,
   sourcesContent: true,
   tsconfig: './deno.json',
-  outdir: './dist',
-  outbase: './src/client',
-  entryNames: '[dir]/bundle',
+  outdir: './dist/app',
+  outbase: './src/client/app',
   entryPoints: [
-    './src/client/app/**/index.tsx'
+    './src/client/app/index.tsx'
   ],
   supported: {
     'import-attributes': true,
