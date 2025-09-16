@@ -1,11 +1,10 @@
 /// <reference lib="deno.ns" />
 import * as esbuild from '@esbuild';
-import { sassPlugin as esbuildPluginSass } from '@esbuild-sass-plugin';
 import { solidPlugin as esbuildPluginSolidJs } from '@esbuild-plugin-solid';
 import { green } from '@std/fmt/colors';
 import { parseArgs } from '@std/cli/parse-args';
 
-import importMap from '../import_map.json' with {type: 'json'}
+import denoJson from '../../deno.json' with {type: 'json'}
 import filesToCopy from './copy_files_extension_filter.json' with {type: 'json'}
 
 const args = parseArgs<{
@@ -59,10 +58,9 @@ const filesConfig : esbuild.BuildOptions = {
     'nesting': true
   },
   plugins: [
-    esbuildPluginSass({type: 'style'}),
     esbuildPluginSolidJs({solid: {moduleName: '@solid-js/web'}})
   ],
-  alias: importMap.imports,
+  alias: denoJson.imports
 }
 
 console.log('Build process started.');

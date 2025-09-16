@@ -7,6 +7,11 @@
       "description": "Install all dependencies specified in the \"deno.lock\" file.",
       "command": "deno install"
     },
+    "build-deno": {
+      "description": "Build the app for production.",
+      "command": "deno run -A ./config/build/bundle.ts",
+      "dependencies": [ "clear-dist" ]
+    },
     "build": {
       "description": "Build the app for production.",
       "command": "deno run -A ./config/build/index.ts",
@@ -51,19 +56,15 @@
       "dependencies": [ "clear-reports" ]
     }
   },
-  "lock": "./config/lock.json",
-  "importMap": "./config/import_map.json",
+  "unstable": [
+    "bundle"
+  ],
   "compilerOptions": {
-    "target": "esnext",
     "module": "esnext",
-    "experimentalDecorators": true,
     "lib": [
       "esnext",
       "dom",
       "webworker"
-    ],
-    "types": [
-      "./config/types/scss.d.ts"
     ],
     "jsx": "react-jsx",
     "jsxImportSource": "npm:solid-js"
@@ -112,5 +113,16 @@
       "singleQuote": true,
       "lineWidth": 120
     }
+  },
+  "imports": {
+    "@esbuild": "npm:esbuild",
+    "@esbuild-plugin-solid": "npm:esbuild-plugin-solid",
+    "@solid-js": "https://esm.sh/solid-js@1.9.9",
+    "@solid-js/web": "https://esm.sh/solid-js@1.9.9/web",
+    "@solid-js/router": "https://esm.sh/@solidjs/router@0.15.3",
+    "@std/cli/parse-args": "jsr:@std/cli@^1.0.6/parse-args",
+    "@std/http/unstable-route": "jsr:@std/http@^1.0.6/unstable-route",
+    "@std/http/file-server": "jsr:@std/http@^1.0.6/file-server",
+    "@std/fmt/colors": "jsr:@std/fmt@^1.0.2/colors"
   }
 }
