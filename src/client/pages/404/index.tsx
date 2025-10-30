@@ -1,4 +1,6 @@
 import type {JSXElement} from '@solid-js'
+import './index.css'
+
 
 export function NotFound() : JSXElement {
   return (

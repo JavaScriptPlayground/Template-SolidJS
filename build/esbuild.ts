@@ -45,13 +45,8 @@ const buildConfig : esbuild.BuildOptions = {
   outbase: './src/client',
   entryPoints: [
     './src/client/**/index.html',
-    './src/client/index.tsx',
-    './src/client/index.css'
+    './src/client/index.tsx'
   ],
-  supported: {
-    'import-attributes': true,
-    'nesting': true
-  },
   plugins: [
     esbuildPluginTransformScriptTags(),
     esbuildPluginDeno({

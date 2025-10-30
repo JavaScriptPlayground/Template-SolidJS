@@ -18,10 +18,13 @@ body {
 .page {
   display: grid;
   gap: 100px;
+  justify-content: center;
 
   .title,
   .link {
     text-align: center;
+    border-radius: 10px;
+    padding: 0 15px 5px;
   }
 
   .link {
@@ -30,5 +33,6 @@ body {
 
   .logo {
     width: 200px;
+    margin: auto;
   }
 }
