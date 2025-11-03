@@ -70,6 +70,9 @@
     ]
   },
   "lint": {
+    "plugins": [
+      "jsr:@loat-dev/lint-plugins@^0.1.2/colon_spacing"
+    ],
     "rules": {
       "tags": [
         "recommended"
@@ -101,10 +104,10 @@
     }
   },
   "fmt": {
-    "options": {
-      "singleQuote": true,
-      "lineWidth": 120
-    }
+    "trailingCommas": "never",
+    "singleQuote": true,
+    "lineWidth": 120,
+    "typeLiteral.separatorKind": "comma"
   },
   "imports": {
     "@deno/esbuild-plugin": "jsr:@deno/esbuild-plugin@^1.2.0",
