@@ -113,6 +113,7 @@
     "@solid-js/router": "npm:@solidjs/router@^0.15.3",
     "@std/cli": "jsr:@std/cli@^1.0.6",
     "@std/http": "jsr:@std/http@^1.0.6",
-    "@std/fmt": "jsr:@std/fmt@^1.0.2"
+    "@std/fmt": "jsr:@std/fmt@^1.0.2",
+    "@esbuild-plugin-solid": "npm:esbuild-plugin-solid@^0.6.0"
   }
 }

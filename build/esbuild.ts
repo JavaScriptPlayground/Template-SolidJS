@@ -3,8 +3,9 @@ import * as esbuild from '@esbuild';
 import { bold, green, magenta } from '@std/fmt/colors';
 import { parseArgs } from '@std/cli/parse-args';
 import { copy as esbuildPluginCopy } from './plugins/copy.ts';
-import { denoPlugin as esbuildPluginDeno } from "@deno/esbuild-plugin";
 import { transformScriptTags as esbuildPluginTransformScriptTags } from './plugins/transform_script_tags.ts';
+import { denoPlugin as esbuildPluginDeno } from "@deno/esbuild-plugin";
+import { solidPlugin as esbuildPluginSolidJS } from "@esbuild-plugin-solid";
 
 const args = parseArgs<{
   watch: boolean | undefined,
@@ -37,8 +38,7 @@ const buildConfig : esbuild.BuildOptions = {
   format: 'esm',
   target: 'esnext',
   platform: 'browser',
-  jsx: 'automatic',
-  jsxImportSource: '@solid-js/h',
+  jsx: 'preserve',
   sourcemap: args.develop ? 'linked' : false,
   sourcesContent: true,
   outdir: './dist',
@@ -48,6 +48,11 @@ const buildConfig : esbuild.BuildOptions = {
     './src/client/index.tsx'
   ],
   plugins: [
+    esbuildPluginSolidJS({
+      solid: {
+        moduleName: '@solid-js/web'
+      }
+    }),
     esbuildPluginTransformScriptTags(),
     esbuildPluginDeno({
       preserveJsx: true,
