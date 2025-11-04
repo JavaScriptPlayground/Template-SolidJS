@@ -45,6 +45,10 @@
       "description": "Run linter.",
       "command": "deno lint"
     },
+    "format": {
+      "description": "Run formatter.",
+      "command": "deno lint --fix"
+    },
     "test": {
       "description": "Run unit tests. Junit reports will be saved to \"./reports/report.xml\".",
       "command": "deno test -A --check --reload --doc --permit-no-files --junit-path=\"./reports/report.xml\"",
