@@ -75,8 +75,9 @@
   },
   "lint": {
     "plugins": [
-      "jsr:@loat-dev/lint-plugins@0.2.0/colon_spacing",
-      "jsr:@loat-dev/lint-plugins@0.2.0/imports"
+      "jsr:@loat-dev/lint-plugins@0.3.1/colon_spacing",
+      "jsr:@loat-dev/lint-plugins@0.3.1/imports",
+      "jsr:@loat-dev/lint-plugins@0.3.1/arrays"
     ],
     "rules": {
       "tags": [
