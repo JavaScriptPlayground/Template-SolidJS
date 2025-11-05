@@ -8,9 +8,9 @@ import { denoPlugin as esbuildPluginDeno } from "@deno/esbuild-plugin";
 import { solidPlugin as esbuildPluginSolidJS } from "@esbuild-plugin-solid";
 
 const args = parseArgs<{
-  watch: boolean | undefined,
-  develop: boolean | undefined,
-  logLevel: esbuild.LogLevel
+  watch : boolean | undefined,
+  develop : boolean | undefined,
+  logLevel : esbuild.LogLevel
 }>(Deno.args);
 
 const copyConfig : esbuild.BuildOptions = {
